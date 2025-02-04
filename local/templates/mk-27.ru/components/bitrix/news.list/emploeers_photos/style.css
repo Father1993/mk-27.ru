@@ -1,0 +1,42 @@
+.emploeers-photos-title {
+	margin-top: 15px;
+}
+.emploeers-photos {
+	padding-bottom: 15px;
+}
+.emploeers-photos .item {
+	padding: 5px;
+}
+.emploeers-photos .item-inner {
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%);
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	transition: 0.15s;
+}
+.emploeers-photos .item .picture {
+	min-height: 150px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5px;
+}
+.emploeers-photos a:hover .item-inner {
+	box-shadow: 0 1px 5px 0 rgb(0 0 0 / 25%);
+}
+
+@media (max-width: 991px) {
+	.emploeers-photos .item .picture {
+		min-height: 250px;
+	}
+}
+
+a.emploeers-photos-link-see-all {
+	padding: 5px;
+	margin-bottom: 15px;
+	color: #EE3831;
+	display: inline-block;
+}
+a.emploeers-photos-link-see-all:hover {
+	text-decoration: underline;
+}

@@ -1,0 +1,116 @@
+# Игнорировать системные и временные файлы
+/.idea/
+/.sass-cache/
+/.cache/
+/cgi-bin/
+**/.bash_history
+**/node_modules/
+**/vendor/
+
+# Игнорировать содержимое /bitrix/, но с исключениями
+/bitrix/*
+!/bitrix/modules/
+!/bitrix/components/
+!/bitrix/js/
+!/bitrix/templates/
+
+# Исключения для /bitrix/modules/
+/bitrix/modules/*
+!/bitrix/modules/main/
+/bitrix/modules/main/*
+!/bitrix/modules/main/tools/
+!/bitrix/modules/main/bx_root.php
+
+# Исключения для /bitrix/components/
+/bitrix/components/*
+
+
+# Другие специфичные исключения
+!/bitrix/composer-bx.json
+
+# Игнорировать загрузки и медиафайлы
+/upload/
+/fonts/
+/images/
+/log/
+
+# Игнорировать конфиденциальные файлы
+/bitrix/php_interface/dbconn.ph*
+/bitrix/php_interface/after_connect*
+/bitrix/php_interface/*.bak
+
+# Игнорировать файлы ADEV
+/adev/*.php
+
+# Игнорировать временные и системные файлы
+/*~
+*/_*
+/_*
+/.vs
+*.DS_Store
+
+# Игнорировать различные типы файлов
+*.css.map
+*.csv
+*.doc*
+*.dt
+*.enc*
+*.gz*
+*.html
+*.log
+*.old
+*.pdf
+*.phar
+*.ppt*
+*.psb
+*.psd
+*.rar
+*.rtf
+*.sketch
+*.sql
+*.swo
+*.tar*
+*.tgz*
+*.xls*
+*.zip*
+
+# Исключения для некоторых Markdown файлов
+*.md
+!**/README.md
+!**/CHANGELOG.md
+!**/INSTALL.md
+
+# Исключения для XML в определенной директории
+*.xml
+!local/php_interface/migrations/**/*.xml
+
+# Игнорировать специфичные файлы и директории
+*.Spotlight-V100
+*.Trashes
+*.ftpconfig
+*.hg
+*.htaccess*
+.php~
+*.swp
+*.mp3
+Thumbs.db
+_*
+composer.phar
+core.*
+ehthumbs.db
+restore.php
+web.config
+.env
+.docker
+
+# Специфичные исключения для bitrix
+!/bitrix/templates/
+bitrix/templates/landing24
+
+# Тестовые файлы и логи
+local/tests/logs/*
+!local/phpunit.xml
+!local/phpcs.xml
+
+# Игнорировать файл настроек
+settings.php.git_backup

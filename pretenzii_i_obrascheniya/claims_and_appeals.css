@@ -1,0 +1,77 @@
+.page-main-block .form-block {
+	max-width: 600px;
+	padding: 15px 30px;
+	border: 1px #ccc solid;
+	margin-top: 30px;
+}
+.page-main-block .form-block .form-title {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.page-main-block .form-block label {
+	display: block;
+}
+.page-main-block .form-block label span {
+	display: block;
+	margin-bottom: 5px;
+}
+.page-main-block .form-block input,
+.page-main-block .form-block textarea,
+.page-main-block .form-block select {
+	display: inline-block;
+	width: 100%;
+	border: 1px #ccc solid;
+	padding: 5px 15px;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+.page-main-block .form-block textarea {
+	min-height: 100px;
+}
+
+.page-main-block .form-block .file-label .file-text {
+    border: 1px #ccc solid;
+    display: inline-table;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.page-main-block .form-block .file-label .plus {
+	display: inline;
+	margin: 0;
+	border-right: 1px #ccc solid;
+	padding-right: 7px;
+	margin-right: 7px;
+	font-weight: bold;
+}
+.page-main-block .form-block .file-label input {
+	display: none;
+}
+
+.page-main-block .form-block input[type="submit"] {
+	background: #EE3831;
+	border-color: #fff;
+    color: #fff;
+    transition: 0.15s;
+}
+.page-main-block .form-block input[type="submit"]:hover {
+	opacity: 0.8;
+}
+
+.page-main-block .form-block .policy {
+	max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+.page-main-block .form-block .policy a {
+    font-size: 12px;
+    color: #EE3831;
+}
+.page-main-block .form-block label span.star {
+	color: #EE3831;
+	display: inline;
+}

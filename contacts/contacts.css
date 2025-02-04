@@ -1,0 +1,37 @@
+.new-contacts h1 {
+	margin-bottom: 15px;
+}
+.new-contacts .contacts {
+	display: none;
+}
+.new-contacts .contacts.active {
+	display: block;
+}
+.new-contacts .city-change {
+	padding: 5px;
+	text-align: center;
+	font-size: 22px;
+	margin: 15px 0;
+	cursor: pointer;
+	border: 1px #ccc solid;
+	transition: 0.15s;
+	color: #EE3831;
+	border-radius: 5px;
+}
+
+.new-contacts .city-change:hover {
+	color: #fff;
+	background: #EE3831;
+	border-color: #EE3831;
+}
+
+.new-contacts .city-change.active {
+	color: #fff;
+	background: #EE3831;
+	border-color: #EE3831;
+}
+@media (max-width: 768px) {
+	.new-contacts .city-change {
+		margin: 5px 0;
+	}
+}

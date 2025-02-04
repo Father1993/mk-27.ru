@@ -1,0 +1,121 @@
+.emploeers-mails-title {
+	margin-top: 15px;
+}
+.emploeers-mails-slider {
+	max-width: 100%;
+	margin: 15px auto 30px;	
+}
+.emploeers-mails-slider__item {
+	min-height: 300px;
+	display: flex;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: end;
+    border: 1px #ccc solid;
+    padding: 0;
+    text-align: center;
+    margin: 1px;
+}
+.emploeers-mails-slider__text {
+	background: rgba(255, 255, 255, 0.8);
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	border-top: 1px #ccc solid;
+	text-shadow: 0.5px 0.5px 0.5px #333;
+}
+
+.emploeers-mails-slider .owl-dots {
+	display: none;
+}
+
+.emploeers-mails-slider .owl-nav {
+	display: block;
+}
+
+.emploeers-mails-slider .owl-prev,
+.emploeers-mails-slider .owl-next {
+	font-size: 50px !important;
+    color: #008ed5 !important;
+    font-weight: 300 !important;
+    position: absolute;
+    top: calc(50% - 30px);
+    outline: none;
+    transition: .15s;
+}
+.emploeers-mails-slider .owl-prev span,
+.emploeers-mails-slider .owl-next span {
+	transition: .15s;
+	background: #fff;
+    height: 50px;
+    width: 50px;
+    display: block;
+	line-height: 0.87;
+    font-size: 46px;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2), inset 0 0 0 1px rgba(0,0,0,0.1);
+    color: #475560;
+}
+
+.emploeers-mails-slider .owl-next span {
+	padding-left: 3px;
+}
+
+.emploeers-mails-slider .owl-prev:hover span,
+.emploeers-mails-slider .owl-next:hover span {
+	color: #fff;
+	background: #EE3831;
+}
+.emploeers-mails-slider .owl-prev:active span,
+.emploeers-mails-slider .owl-next:active span {
+	background: #de5353;
+}
+
+.emploeers-mails-slider .owl-prev {
+	left: 0px;
+	opacity: 0;
+}
+.emploeers-mails-slider .owl-next {
+    right: 0px;
+    opacity: 0;
+}
+
+.emploeers-mails-slider:hover .owl-prev {
+	left: 10px;
+	opacity: 1;
+}
+.emploeers-mails-slider:hover .owl-next {
+    right: 10px;
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+	.emploeers-mails-slider .owl-prev {
+		left: -30px;
+		opacity: 1;
+		top: calc(50% - 20px);
+	}
+	.emploeers-mails-slider .owl-next {
+	    right: -30px;
+	    opacity: 1;
+	    top: calc(50% - 20px);
+	}
+	.emploeers-mails-slider .owl-prev span,
+	.emploeers-mails-slider .owl-next span {
+	    background: none;
+	    box-shadow: none;
+	    color: #999;
+	    width: 30px;
+	}
+	.emploeers-mails-slider .owl-prev:hover span,
+	.emploeers-mails-slider .owl-next:hover span {
+		color: #999;
+		background: none;
+	}
+	.emploeers-mails-slider .owl-prev:active span,
+	.emploeers-mails-slider .owl-next:active span {
+		background: none;
+	}
+}
+

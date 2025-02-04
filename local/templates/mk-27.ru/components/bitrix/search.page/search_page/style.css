@@ -1,0 +1,107 @@
+a.search-page-params {
+	border-bottom: 1px dashed blue;
+	text-decoration: none;
+}
+div.search-page-params {
+	margin-top: 6px;
+}
+.search-item-rate {font-size: 11px;}
+
+input.search-suggest {
+	border: 1px #ccc solid;
+	padding: 5px 10px;
+}
+
+.search-page input[type="submit"] {
+	font-size: 16px;
+    padding: 5px 30px;
+    border-radius: 8px;
+    color: #fff;
+    background: #EE3831;
+    border-color: #EE3831;
+    transition: 0.15s;
+    outline: none !important;
+    margin-left: 15px;
+}
+.search-page input[type="submit"]:hover {
+	opacity: 0.8;
+}
+.search-language-guess a {
+	color: #EE3831;
+	transition: 0.15s;
+}
+.search-language-guess a:hover {
+	color: #a71913;
+}
+.search-page .item {
+    border: 1px #eee solid;
+    background: #fff;
+    overflow: hidden;
+    padding: 15px;
+    transition: 0.15s;
+}
+.search-page a.image {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+.search-page a.image img {
+    height: max-content;
+    max-height: 100%;
+}
+.search-page .title-link {
+	color: #333;
+    font-size: 16px;
+    height: 70px;
+    overflow: hidden;
+    margin-top: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    height: 70px;
+    transition: 0.15s;
+}
+.search-page .title-link:hover {
+	color: #EE3831;
+}
+.search-page .price {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+	margin: 10px 0;
+}
+.search-page .price i {
+	font-size: 18px;
+    margin-left: 5px;
+    font-weight: 400;
+}
+.search-page .section-link {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 0 0 5px;
+    background: #eee;
+}
+.search-page .section-title,
+.search-page .item-title {
+	color: #333;
+    padding: 15px 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+@media (max-width: 576px) {
+	input.search-suggest {
+		width: 100%;
+	}
+	.search-page input[type="submit"] {
+		margin: 15px auto;
+		width: 100%;
+	}
+}

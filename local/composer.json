@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Adev\\": "classes/Adev"
+        }
+    },
+    "require-dev": {
+        "kint-php/kint": "^4.2"
+    }
+}

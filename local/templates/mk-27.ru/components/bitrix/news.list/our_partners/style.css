@@ -1,0 +1,27 @@
+.partners-list {
+	
+}
+.partners-list .item .title {
+	font-weight: bold;
+	font-size: 24px;
+	padding: 15px 0;
+}
+
+.partners-list .item .links-text {
+	padding: 15px 0;
+}
+
+
+.partners-list .item .link-item {
+	border: 1px #ccc solid;
+	padding: 15px;
+	max-width: 300px;
+	text-align: center;
+}
+.partners-list .item .link-item .link-item-inner {
+    height: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}

@@ -1,0 +1,9 @@
+.section-block {
+	margin-left: -12px;
+}
+.section-block a {
+	display: inline-block;
+	padding: 5px 15px;
+	margin: 0 0 5px;
+	background: #eee;
+}

@@ -1,0 +1,11 @@
+.shipping-rates__table {
+	max-width: 763px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+ 
+.shipping-rates__table tr td {
+	border: 1px #999 solid;
+	padding: 15px;
+	text-align: unset;
+}

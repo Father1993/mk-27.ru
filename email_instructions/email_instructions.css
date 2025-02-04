@@ -1,0 +1,45 @@
+.email-instructions a {
+	color: #EE3831;
+}
+.email-instructions h5 a {
+	font-size: 1.25rem;
+}
+
+.email-instructions .switcher-button {
+	padding: 5px;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+    border: 1px #ccc solid;
+    transition: 0.15s;
+    color: #EE3831;
+    border-radius: 5px;
+}
+.email-instructions .switcher-button:hover {
+    color: #fff;
+    background: #EE3831;
+    border-color: #EE3831;
+}
+.email-instructions .switcher-button.active {
+    color: #fff;
+    background: #EE3831;
+    border-color: #EE3831;
+}
+.email-instructions .image-link {
+	border: 1px #ccc solid;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.15s;
+    display: block;
+    width: 100%;
+    max-width: 1300px;
+    margin-bottom: 20px;
+}
+
+.email-instructions .block {
+	display: none;
+}
+.email-instructions .block.active {
+	display: block;
+}

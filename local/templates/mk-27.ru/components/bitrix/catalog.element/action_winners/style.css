@@ -1,0 +1,26 @@
+.action-winners {
+	
+}
+
+.action-winners .item {
+	margin-bottom: 15px;
+}
+
+.action-winners .item .picture {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+	.action-winners h2 {
+		font-size: 26px; 
+	}
+}
+
+@media (max-width: 576px) {
+	.action-winners.no-padding-container  {
+	    padding-left: 0 !important;
+    	padding-right: 0 !important;
+	}
+}
