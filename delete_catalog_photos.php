@@ -15,7 +15,7 @@ use Bitrix\Iblock\ElementTable;
 Loader::includeModule('iblock');
 
 $IBLOCK_ID = 13; // ID вашего инфоблока
-$BATCH_SIZE = 50; // Количество элементов для обработки за один шаг
+$BATCH_SIZE = 500; // Количество элементов для обработки за один шаг
 $startFrom = isset($_GET['startFrom']) ? (int)$_GET['startFrom'] : 0;
 
 // Получаем общее количество элементов
