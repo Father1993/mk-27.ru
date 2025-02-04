@@ -25,37 +25,43 @@ $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
 <!DOCTYPE html>
 <html lang="ru" dir="ltr" itemscope itemtype="http://schema.org/WebPage">
 
-	<head>
-		<link itemprop="url" href="<?=$url?>" />
-		<link rel="canonical" href="<?=$url?>" />
-		<base href="<?=$url?>"/>
-		
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-		<link rel="shortcut icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/64.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/180.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/152.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/144.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/120.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/114.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/76.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/72.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/57.png" />
-		
-		<link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/safari-pinned-tab.svg" color="#ee3831">
-		
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="theme-color" content="#ffffff">
-				
-        <?php $APPLICATION->ShowProperty("og-title"); ?>
-        <?php $APPLICATION->ShowProperty("og-description"); ?>
-        <?php $APPLICATION->ShowProperty("og-image"); ?>
+<head>
+  <link itemprop="url" href="<?=$url?>" />
+  <link rel="canonical" href="<?=$url?>" />
+  <base href="<?=$url?>" />
 
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://mk-27.ru/">
-		<meta property="og:site_name" content="Метиз Комплект">
-		
-		<?php
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+  <link rel="shortcut icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/64.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="180x180"
+    href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/180.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152"
+    href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/152.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+    href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120"
+    href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+    href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/57.png" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/safari-pinned-tab.svg" color="#ee3831">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <?php $APPLICATION->ShowProperty("og-title"); ?>
+  <?php $APPLICATION->ShowProperty("og-description"); ?>
+  <?php $APPLICATION->ShowProperty("og-image"); ?>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mk-27.ru/">
+  <meta property="og:site_name" content="Метиз Комплект">
+
+  <?php
 		
 			use Bitrix\Main\UI\Extension;
 			Extension::load('ui.bootstrap4');
@@ -84,138 +90,170 @@ $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
 
 		?>
 
-		<?php $APPLICATION->ShowHead(); ?>
+  <?php $APPLICATION->ShowHead(); ?>
 
-		<title itemprop="headline"><?php $APPLICATION->ShowTitle(); ?></title>
+  <title itemprop="headline"><?php $APPLICATION->ShowTitle(); ?></title>
 
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
-           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-           m[i].l=1*new Date();
-           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        
-           ym(84934894, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true,
-                ecommerce:"dataLayer"
-           });
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/84934894" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGCR8WCW8N"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'G-GGCR8WCW8N');
-        </script>
-        
-        <?php 
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function(m, e, t, r, i, k, a) {
+    m[i] = m[i] || function() {
+      (m[i].a = m[i].a || []).push(arguments)
+    };
+    m[i].l = 1 * new Date();
+    for (var j = 0; j < document.scripts.length; j++) {
+      if (document.scripts[j].src === r) {
+        return;
+      }
+    }
+    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+  })
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(84934894, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    ecommerce: "dataLayer"
+  });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/84934894" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGCR8WCW8N"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-GGCR8WCW8N');
+  </script>
+
+  <?php 
         global $USER;
         if (!$USER) $USER = new CUser();
         if (($USER->GetID() != 1) && ($USER->GetID() != 5016)):
         ?>
-        	<script src="//code.jivo.ru/widget/bPEQ6aHDNW" async></script>
-    	<?php endif; ?>
-		
-	</head>
+  <script src="//code.jivo.ru/widget/bPEQ6aHDNW" async></script>
+  <?php endif; ?>
 
-	<body>
+</head>
 
-	<!-- Top.Mail.Ru counter -->
-<script type="text/javascript">
-var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");
-</script>
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3300765;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
-<!-- /Top.Mail.Ru counter -->
+<body>
 
-	<div itemprop="isPartOf" itemscope itemtype="https://schema.org/WebSite">
-		<link itemprop="url" href="<?=$_SERVER['HTTP_HOST']?>" />
-	</div>
+  <!-- Top.Mail.Ru counter -->
+  <script type="text/javascript">
+  var _tmr = window._tmr || (window._tmr = []);
+  _tmr.push({
+    id: "3300765",
+    type: "pageView",
+    start: (new Date()).getTime()
+  });
+  (function(d, w, id) {
+    if (d.getElementById(id)) return;
+    var ts = d.createElement("script");
+    ts.type = "text/javascript";
+    ts.async = true;
+    ts.id = id;
+    ts.src = "https://top-fwz1.mail.ru/js/code.js";
+    var f = function() {
+      var s = d.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(ts, s);
+    };
+    if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+      f();
+    }
+  })(document, window, "tmr-code");
+  </script>
+  <noscript>
+    <div><img src="https://top-fwz1.mail.ru/counter?id=3300765;js=na" style="position:absolute;left:-9999px;"
+        alt="Top.Mail.Ru" /></div>
+  </noscript>
+  <!-- /Top.Mail.Ru counter -->
 
-    <?php $APPLICATION->ShowPanel(); ?>
-    
-    	<div class="grey-background"></div>
+  <div itemprop="isPartOf" itemscope itemtype="https://schema.org/WebSite">
+    <link itemprop="url" href="<?=$_SERVER['HTTP_HOST']?>" />
+  </div>
 
-		<header itemscope itemtype="http://schema.org/WPHeader">
+  <?php $APPLICATION->ShowPanel(); ?>
 
-			<div class="container no-padding-container">
-    		
-    			<?php if ($main): ?>
-    			
-    				<div class="logo">
-    					<a class="desktop" href="/">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-white.svg">
-    					</a>
-    					
-						<div class="hamburger mobile" onclick="showMenu();">
-    						<div class="hamburger-icon">
-        						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        							<path fill="#fff" d="M3 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3z"/>
-        						</svg>
-    						</div>
-    						<span class="cross">✖</span>
-    					</div>
-    					
-    					<a class="mobile" href="/">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-mobile.svg">
-    					</a>
-    				</div>
-    			
-    			<?php else: ?>
-    			
-    				<div class="logo logo-not-main">
-    					<a class="desktop" href="/">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-white.svg">
-    					</a>
-    					
-    					<div class="hamburger" onclick="showMenu();">
-    						<div class="hamburger-icon">
-        						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        							<path fill="#fff" d="M3 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3z"/>
-        						</svg>
-    						</div>
-    						<span class="cross">✖</span>
-    					</div>
-    					
-    					<a class="mobile" href="/">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-mobile.svg">
-    					</a>
-    					
-    				</div>
-    			
-    			<?php endif; ?>
-    			
-    			<div class="header-main">
-    				
-    				<div class="header-phones desktop">
-    					<p class="fs-12">
-    						Звонок по г. <?=$city_name?> с 9:00 до 18:00
-    					</p>
-    					
-    					<?php 
+  <div class="grey-background"></div>
+
+  <header itemscope itemtype="http://schema.org/WPHeader">
+
+    <div class="container no-padding-container">
+
+      <?php if ($main): ?>
+
+      <div class="logo">
+        <a class="desktop" href="/">
+          <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-white.svg">
+        </a>
+
+        <div class="hamburger mobile" onclick="showMenu();">
+          <div class="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+              <path fill="#fff"
+                d="M3 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3z" />
+            </svg>
+          </div>
+          <span class="cross">✖</span>
+        </div>
+
+        <a class="mobile" href="/">
+          <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-mobile.svg">
+        </a>
+      </div>
+
+      <?php else: ?>
+
+      <div class="logo logo-not-main">
+        <a class="desktop" href="/">
+          <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-white.svg">
+        </a>
+
+        <div class="hamburger" onclick="showMenu();">
+          <div class="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+              <path fill="#fff"
+                d="M3 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3zm0 6a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3z" />
+            </svg>
+          </div>
+          <span class="cross">✖</span>
+        </div>
+
+        <a class="mobile" href="/">
+          <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo-mobile.svg">
+        </a>
+
+      </div>
+
+      <?php endif; ?>
+
+      <div class="header-main">
+
+        <div class="header-phones desktop">
+          <p class="fs-12">
+            Звонок по г. <?=$city_name?> с 9:00 до 18:00
+          </p>
+
+          <?php 
                 		global $arrFilterHeaderPhones;
                 		$arrFilterHeaderPhones = array(
                 		    "PROPERTY_CITY_VALUE" => $city_name
                 		);
                 		?>
-    					
-    					<?$APPLICATION->IncludeComponent(
+
+          <?$APPLICATION->IncludeComponent(
     						"bitrix:news.list", 
     						"header_phones", 
     						array(
@@ -280,10 +318,10 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
     						),
     						false
     					);?>
-    				</div>
-    				
-    				<div class="header-menu desktop">
-    					<?$APPLICATION->IncludeComponent(
+        </div>
+
+        <div class="header-menu desktop">
+          <?$APPLICATION->IncludeComponent(
     						"bitrix:menu",
     						"header_menu",
     						array(
@@ -302,58 +340,61 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
     						),
     						false
     					);?>
-    				</div>
-    				
-    				<div class="header-city">
-    					<p class="city-text fs-12 desktop">Город:</p>
-    					<p class="city-selected fs-14 desktop" onclick="showCityChange();"><?=$city_name?></p>
-    					<div class="city-icon mobile" onclick="showCityChange();">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/location.svg">
-    					</div>
-    					
-    					<div class="header-city-change <?=$change_city_active?>">
-    					
-    						<div class="city-arrow"></div>
-    					
-    						<div class="first-block">
-    						
-    							<span class="your-city">
-    								Ваш город <b><?=$city_name?></b>?
-    							</span>
-    							
-    							<div class="buttons">
-    								<div class="button button-yes" onclick="selectCity('<?=$city_code?>');">Да</div>
-    								<div class="button button-no" onclick="showCitySelect();">Выбрать другой</div>
-    							</div>
-    							
-    						</div>
-    						
-    						<div class="second-block">
-    							<div class="cross" onclick="hideCityChange();">✖</div>
-    							<div class="title">Выберите город</div>
-    							
-    							<div class="select-city" onclick="selectCity('vld', true);">Владивосток</div>
-    							<div class="select-city" onclick="selectCity('khb', true);">Хабаровск</div>
-    							<div class="select-city" onclick="selectCity('ysl', true);">Южно-Сахалинск</div>
-    						</div>
-    					
-    					</div>
-    					
-    				</div>
-    				
-    				<div class="header-social">
-    					<a href="https://wa.me/79145443019" target="_blank"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-wa.svg"></a>
-                        <a href="https://t.me/metiz_komplekt27" target="_blank"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-telegram.svg"></a>
-                        <a class="social-insta" href="https://www.instagram.com/metiz_komplekt27?igsh=ZDFjcWRiMmY5cXkx&utm_source=qr" target="_blank"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/instagram32.svg"></a>
-    				</div>
-    				
-    				<div class="header-search">
-    					<a href="/search/">
-    						<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-search.svg">
-    					</a>
-    				</div>
+        </div>
 
-    				<?$APPLICATION->IncludeComponent(
+        <div class="header-city">
+          <p class="city-text fs-12 desktop">Город:</p>
+          <p class="city-selected fs-14 desktop" onclick="showCityChange();"><?=$city_name?></p>
+          <div class="city-icon mobile" onclick="showCityChange();">
+            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/location.svg">
+          </div>
+
+          <div class="header-city-change <?=$change_city_active?>">
+
+            <div class="city-arrow"></div>
+
+            <div class="first-block">
+
+              <span class="your-city">
+                Ваш город <b><?=$city_name?></b>?
+              </span>
+
+              <div class="buttons">
+                <div class="button button-yes" onclick="selectCity('<?=$city_code?>');">Да</div>
+                <div class="button button-no" onclick="showCitySelect();">Выбрать другой</div>
+              </div>
+
+            </div>
+
+            <div class="second-block">
+              <div class="cross" onclick="hideCityChange();">✖</div>
+              <div class="title">Выберите город</div>
+
+              <div class="select-city" onclick="selectCity('vld', true);">Владивосток</div>
+              <div class="select-city" onclick="selectCity('khb', true);">Хабаровск</div>
+              <div class="select-city" onclick="selectCity('ysl', true);">Южно-Сахалинск</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="header-social">
+          <a href="https://wa.me/79145443019" target="_blank"><img
+              src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-wa.svg"></a>
+          <a href="https://t.me/metiz_komplekt27" target="_blank"><img
+              src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-telegram.svg"></a>
+          <a class="social-insta" href="https://www.instagram.com/metiz_komplekt27?igsh=ZDFjcWRiMmY5cXkx&utm_source=qr"
+            target="_blank"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/instagram32.svg"></a>
+        </div>
+
+        <div class="header-search">
+          <a href="/search/">
+            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-search.svg">
+          </a>
+        </div>
+
+        <?$APPLICATION->IncludeComponent(
                     	"bitrix:sale.basket.basket.line", 
                     	"header_cart", 
                     	array(
@@ -382,47 +423,47 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
                     	),
                     	false
                     );?>
-                    <?php ?>
-                    <div class="header-profile">
-                    	<?php global $USER; if ($USER->IsAuthorized()): ?>
-                        	<a href="/personal_section/index.php?SECTION=private">
-                        		<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile_logged.png">
-                        		<div>Профиль</div>
-                        	</a>
-                    	<?php else: ?>
-                        	<a class="log-reg-link" href="/personal_section/index.php?SECTION=private">
-                        		<img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile.png">
-                        		<div>Вход</div>
-                        	</a>
-                            <div class="enter-or">ИЛИ</div>
-                            <a class="log-reg-link head-reg-link" href="/personal_section/registration.php?type=legal">
-                                <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/registration.png">
-                                <div>Регистрация</div>
-                            </a>
-                    	<?php endif; ?>
-                    </div>
-                    <?php ?> 
-    				   
-    			</div>
-			
-			</div>
-			
-		</header>
-		
-        <div class="main-menu-mobile-block mobile">
-        
-            <div class="main-menu-mobile">
-            	<div class="catalog" onclick="showMenuCatalog();">
-            		<h3>Каталог</h3><i class="arrow fa fa-angle-right"></i>
-            	</div>
-            </div>
-        
+        <?php ?>
+        <div class="header-profile">
+          <?php global $USER; if ($USER->IsAuthorized()): ?>
+          <a href="/personal_section/index.php?SECTION=private">
+            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile_logged.png">
+            <div>Профиль</div>
+          </a>
+          <?php else: ?>
+          <a class="log-reg-link" href="/personal_section/index.php?SECTION=private">
+            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile.png">
+            <div>Вход</div>
+          </a>
+          <div class="enter-or">ИЛИ</div>
+          <a class="log-reg-link head-reg-link" href="/personal_section/registration.php?type=legal">
+            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/registration.png">
+            <div>Регистрация</div>
+          </a>
+          <?php endif; ?>
         </div>
-        
-        <div class="main-menu-mobile-catalog mobile">
-        	<div class="catalog-menu">
-        		
-        		<?$APPLICATION->IncludeComponent(
+        <?php ?>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <div class="main-menu-mobile-block mobile">
+
+    <div class="main-menu-mobile">
+      <div class="catalog" onclick="showMenuCatalog();">
+        <h3>Каталог</h3><i class="arrow fa fa-angle-right"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-menu-mobile-catalog mobile">
+    <div class="catalog-menu">
+
+      <?$APPLICATION->IncludeComponent(
                 	"bitrix:menu", 
                 	"main_catalog_menu_mobile",
                 	array(
@@ -441,16 +482,16 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
                 	),
                 	false
                 );?>
-        		
-        	</div>
-        </div>
-		
-		<?php if ($main): ?>
-		
-			<main class="main-index-page container no-padding-container">
-			
-				<div class="main-menu desktop">
-					<?$APPLICATION->IncludeComponent(
+
+    </div>
+  </div>
+
+  <?php if ($main): ?>
+
+  <main class="main-index-page container no-padding-container">
+
+    <div class="main-menu desktop">
+      <?$APPLICATION->IncludeComponent(
                     	"bitrix:menu",
                     	"main_catalog_menu",
                     	array(
@@ -469,20 +510,20 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
                     	),
                     	false
                     );?>
-				</div>
-				
-				<div class="main-block index-page">
-				
-		<?php else: ?>
-		
-			<main>
-			
-				<div class="main-block not-index-page">
-				
-    				<div class="container">
-    					<div class="row">
-        					<div class="main-menu desktop">
-            					<?$APPLICATION->IncludeComponent(
+    </div>
+
+    <div class="main-block index-page">
+
+      <?php else: ?>
+
+      <main>
+
+        <div class="main-block not-index-page">
+
+          <div class="container">
+            <div class="row">
+              <div class="main-menu desktop">
+                <?$APPLICATION->IncludeComponent(
             						"bitrix:menu",
             						"main_catalog_menu",
             						Array(
@@ -498,14 +539,14 @@ _tmr.push({id: "3300765", type: "pageView", start: (new Date()).getTime()});
             							"USE_EXT" => "Y"
             						)
             					);?>
-            				</div>
-    					</div>
-    				</div>
-				
-		<?php endif; ?>
-		
-		<?php if ($page == "contacts") $no_padding_container = "contacts-container no-padding-container"; ?>
+              </div>
+            </div>
+          </div>
 
-		<div class="container <?=$no_padding_container?>">
-			<div class="row">
-				<div class="col main-col">
+          <?php endif; ?>
+
+          <?php if ($page == "contacts") $no_padding_container = "contacts-container no-padding-container"; ?>
+
+          <div class="container <?=$no_padding_container?>">
+            <div class="row">
+              <div class="col main-col">
