@@ -28,6 +28,14 @@ function _Check404Error(){
     }
 }
 
+// TODO: Переделать работу с городами и cookies:
+// 1. Перенести уведомление о cookies в localStorage
+// 2. Перенести окно выбора города в localStorage
+// 3. Установить срок жизни cookie города на 1 год
+// 4. Добавить AJAX обработчик для установки города
+// 5. Создать отдельный JavaScript файл для управления городами и cookies
+
+
 // Города и группы пользователя в зависимости от выбранного города
 AddEventHandler("main", "OnBeforeProlog", "MyOnBeforePrologHandler");
 function MyOnBeforePrologHandler() {
@@ -242,52 +250,57 @@ function MyOnOrderNewSendEmail($orderID, &$eventName, &$arFields) {
     }
 
 }
-/* что-то я забыл зачем это, пока прикрою
-// Событие при изменении элемента
-AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "ResizeUploadedPhoto");
-
-function ResizeUploadedPhoto(&$arFields) {
-    
-    if ($_REQUEST["mode"] == "import") {
-        
-        if (CModule::IncludeModule("iblock")) {
-            $res = CIBlockElement::GetList(Array(), Array("IBLOCK_ID" => 13, "ID" => $arFields["ID"]), false, false, Array("ID", "PROPERTY_PHOTO_EXTERNAL_ID"));
-        }
-        $item = $res->fetch();
-        $external_photo_id = $item["PROPERTY_PHOTO_EXTERNAL_ID_VALUE"];
-        
-        //define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
-        //AddMessage2Log($arFields);
-        
-        //AddMessage2Log($external_photo_id);
-        //AddMessage2Log($arFields["DETAIL_PICTURE"]["external_id"]);
-        
-        if ($arFields["PROPERTY_VALUES"]) {
-            if ($external_photo_id == $arFields["DETAIL_PICTURE"]["external_id"]) {
-                // AddMessage2Log("РАВНЫ");
-                unset ($arFields['PREVIEW_PICTURE']);
-                unset ($arFields['DETAIL_PICTURE']);
-            } else {
-                // AddMessage2Log("НЕ РАВНЫ");
-                unset ($arFields["PROPERTY_VALUES"]["164"]);
-                $arFields["PROPERTY_VALUES"]["164"]["VALUE"] = $arFields["DETAIL_PICTURE"]["external_id"];
-            }
-        }
-        
-    }
-    
-}
-*/
 
 AddEventHandler("main", "OnAfterUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnAfterUserUpdate", "OnBeforeUserUpdateHandler");
 function OnBeforeUserUpdateHandler(&$arFields)
 {
-    define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/OnBeforeUserUpdateHandler_log.txt");
-    AddMessage2Log($arFields);
+    $logDir = $_SERVER["DOCUMENT_ROOT"] . "/local/logs";
+    if (!file_exists($logDir)) {
+        mkdir($logDir, 0777, true);
+    }
+
+    $logFile = $logDir . "/user_registration.log";
+    define("LOG_FILENAME", $logFile);
+
+    // Проверяем размер файла
+    if (file_exists($logFile) && filesize($logFile) > 5 * 1024 * 1024) { // 5MB
+        // Создаем архивную копию
+        $archiveFile = $logDir . "/user_registration_" . date('Y-m-d_H-i-s') . ".log";
+        rename($logFile, $archiveFile);
+    }
+
+    $logData = date('Y-m-d H:i:s') . " - " . print_r($arFields, true) . "\n";
+    AddMessage2Log($logData);
     
     $arFields["LOGIN"] = $arFields["EMAIL"];
     return $arFields;
 }
+
+// // Обработчик для удаления фотографий при импорте из 1С  !!!!!!!! ЗАЧЕМ ДУБЛИРОВАТЬ ШТАТНЫЙ ФУННКЦИОНАЛ ИЗ-зА НЕГО ОШИБКИ БЫЛИ С ФОТО НАВРЕНО!
+// AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "DeletePhotosOn1CImport");
+
+// function DeletePhotosOn1CImport(&$arFields)
+// {
+//     // Проверяем, что это импорт из 1С
+//     if(isset($GLOBALS["IS1C"]) && $GLOBALS["IS1C"] === true) {
+//         // Очищаем поля с фотографиями
+//         $arFields["PREVIEW_PICTURE"] = array("del" => "Y");
+//         $arFields["DETAIL_PICTURE"] = array("del" => "Y");
+        
+//         // Очищаем дополнительные фотографии
+//         if(isset($arFields["PROPERTY_VALUES"])) {
+//             // Получаем ID свойства с доп. картинками (MORE_PHOTO)
+//             $propertyCode = "MORE_PHOTO"; // Стандартный код свойства с доп. фото
+//             $dbProperty = CIBlockProperty::GetList(
+//                 array(),
+//                 array("CODE" => $propertyCode, "IBLOCK_ID" => $arFields["IBLOCK_ID"])
+//             );
+//             if($property = $dbProperty->Fetch()) {
+//                 $arFields["PROPERTY_VALUES"][$property["ID"]] = array();
+//             }
+//         }
+//     }
+// }
 
 ?>

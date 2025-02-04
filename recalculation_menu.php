@@ -276,7 +276,7 @@ foreach ($arItems as $key => $val) {
     */
 }
 
-define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/recalculation_menu_log.txt");
+define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/local/logs/recalculation_menu_log.txt");
 AddMessage2Log("Общее количество: " . count($arItems) . ". Пройдено: $n. Обработано: $i. Обработано нейросетью: $k. Создано анонсовых картинок: $x.");
 
 ?>
