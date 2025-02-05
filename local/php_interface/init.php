@@ -78,15 +78,6 @@ function MyOnBeforePrologHandler() {
     }
     $USER->SetUserGroupArray($arGroups); 
     $arGroups = $USER->GetUserGroupArray();
-    
-    $cookies_accept = $APPLICATION->get_cookie("cookies_accept");
-
-    // Cookies
-    if (!isset($cookies_accept) || ($cookies_accept == "")) {
-        global $cookies_active;
-        $cookies_active = "active";
-    }
-
 }
 
 // Пересчет корзины в зависимости от выбранного города

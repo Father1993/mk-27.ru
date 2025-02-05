@@ -1,41 +1,39 @@
 function showCityChange() {
-	$(".header-city-change").fadeIn();
-	$(".header-city-change .first-block").show();
-	$(".header-city-change .second-block").hide();
+    $('.header-city-change').fadeIn()
+    $('.header-city-change .first-block').show()
+    $('.header-city-change .second-block').hide()
 }
 
 function hideCityChange() {
-	$(".header-city-change").fadeOut();
+    $('.header-city-change').fadeOut()
 }
 function showCitySelect() {
-	$(".header-city-change .first-block").hide();
-	$(".header-city-change .second-block").show();
+    $('.header-city-change .first-block').hide()
+    $('.header-city-change .second-block').show()
 }
 function selectCity(city, restart) {
-	BX.ajax({
-		url: '/ajax/select_city.php',
-		data: "city=" + city,
-		method: 'POST',
-		dataType: 'json',
-		timeout: 30,
-		async: true,
-		processData: true,
-		scriptsRunFirst: true,
-		emulateOnload: true,
-		start: true,
-		cache: false,
-		onsuccess: function(data){
-			if (restart === true) {
-				location.reload();
-			} else {
-				$(".header-city-change").fadeOut();
-			}
-		},
-		onfailure: function(){
-			
-		}
-	});
-	return false;
+    BX.ajax({
+        url: '/ajax/select_city.php',
+        data: 'city=' + city,
+        method: 'POST',
+        dataType: 'json',
+        timeout: 30,
+        async: true,
+        processData: true,
+        scriptsRunFirst: true,
+        emulateOnload: true,
+        start: true,
+        cache: false,
+        onsuccess: function (data) {
+            if (restart === true) {
+                location.reload()
+            } else {
+                $('.header-city-change').fadeOut()
+            }
+        },
+        onfailure: function () {},
+    })
+    return false
 }
 
 /*
@@ -60,56 +58,34 @@ jQuery(function($){
 */
 
 function showMenu() {
-	var windowWidth =  $(window).width();
-	if (windowWidth >= 991) {
-		if ($(".not-index-page .main-menu").is(":hidden")) {
-			$(".not-index-page .main-menu").slideDown(250);
-			$(".hamburger-icon").hide();
-			$(".hamburger .cross").show();
-		} else {
-			$(".not-index-page .main-menu").slideUp(250);
-			$(".hamburger-icon").show();
-			$(".hamburger .cross").hide();
-		}
-	} else {
-		if (!$(".main-menu-mobile-catalog").hasClass("active")) {
-			$(".main-menu-mobile-catalog").addClass("active");
-			$(".hamburger-icon").hide();
-			$(".hamburger .cross").show();
-		} else {
-			$(".hamburger-icon").show();
-			$(".hamburger .cross").hide();
-			$(".main-menu-mobile-catalog").removeClass("active");
-			$(".level-2-block").removeClass("active");
-		}
-	}
+    var windowWidth = $(window).width()
+    if (windowWidth >= 991) {
+        if ($('.not-index-page .main-menu').is(':hidden')) {
+            $('.not-index-page .main-menu').slideDown(250)
+            $('.hamburger-icon').hide()
+            $('.hamburger .cross').show()
+        } else {
+            $('.not-index-page .main-menu').slideUp(250)
+            $('.hamburger-icon').show()
+            $('.hamburger .cross').hide()
+        }
+    } else {
+        if (!$('.main-menu-mobile-catalog').hasClass('active')) {
+            $('.main-menu-mobile-catalog').addClass('active')
+            $('.hamburger-icon').hide()
+            $('.hamburger .cross').show()
+        } else {
+            $('.hamburger-icon').show()
+            $('.hamburger .cross').hide()
+            $('.main-menu-mobile-catalog').removeClass('active')
+            $('.level-2-block').removeClass('active')
+        }
+    }
 }
 
-function cookiesAccept() {
-	BX.ajax({
-		url: '/ajax/cookies_accept.php',
-		method: 'POST',
-		dataType: 'json',
-		timeout: 30,
-		async: true,
-		processData: true,
-		scriptsRunFirst: true,
-		emulateOnload: true,
-		start: true,
-		cache: false,
-		onsuccess: function(data){
-			$(".cookies_accept").fadeOut();
-		},
-		onfailure: function(){
-
-		}
-	});
-	return false;
-}
-
-$(function(){
-	$(".popup-window-overlay").click(function(){
-		$(".popup-window-overlay").hide();
-		$(".popup-window-with-titlebar").hide();
-	});	
-});
+$(function () {
+    $('.popup-window-overlay').click(function () {
+        $('.popup-window-overlay').hide()
+        $('.popup-window-with-titlebar').hide()
+    })
+})
