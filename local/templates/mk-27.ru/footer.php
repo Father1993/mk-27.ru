@@ -184,16 +184,6 @@
   <meta itemprop="telephone" content="+7 (4212) 91-90-43" />
 </div>
 
-<div class="cookies_accept <?=$cookies_active?>">
-  <div class="cookies-block">
-    <div class="text">
-      Мы используем cookie. Это позволяет нам анализировать взаимодействие посетителей с сайтом и делать его лучше.
-      Продолжая пользоваться сайтом, вы соглашаетесь с использованием файлов cookie.
-    </div>
-    <div class="cookies-button" onclick="cookiesAccept();">OK</div>
-  </div>
-</div>
-
 </body>
 
 </html>
