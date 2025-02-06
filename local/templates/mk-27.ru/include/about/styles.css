@@ -1,0 +1,331 @@
+/* Логистика */
+.logistics-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    border-radius: 12px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.logistics-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ee3831, transparent);
+}
+
+.logistics-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logistics-content p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logistics-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(238, 56, 49, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(238, 56, 49, 0.2);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(238, 56, 49, 0.05);
+    border-radius: 50%;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.1);
+    background: rgba(238, 56, 49, 0.1);
+}
+
+.icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .icon-image {
+    transform: scale(1.1);
+}
+
+.feature-item h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.feature-item h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #ee3831;
+    opacity: 0.5;
+}
+
+.feature-item p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* Адаптивность для логистики */
+@media (max-width: 991px) {
+    .logistics-features {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logistics-section {
+        padding: 40px 20px;
+    }
+
+    .feature-item {
+        padding: 30px 20px;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logistics-features {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        padding: 25px 15px;
+    }
+}
+
+/* Производство */
+.production-block {
+    padding: 40px;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    border-radius: 12px;
+    margin: 40px 0;
+}
+
+.production-description {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.production-description p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.production-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.production-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.production-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: #ee3831;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.production-card:hover .feature-icon {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(238, 56, 49, 0.3);
+}
+
+.feature-icon i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.production-card h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.production-card h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #ee3831;
+    transition: width 0.3s ease;
+}
+
+.production-card:hover h4:after {
+    width: 60px;
+}
+
+.production-stats {
+    display: grid;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ee3831;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1rem;
+}
+
+.production-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.production-list li {
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #555;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.production-list li:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+    color: #ee3831;
+}
+
+/* Адаптивность */
+@media (max-width: 991px) {
+    .production-features {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .production-block {
+        padding: 30px 20px;
+    }
+
+    .production-card h4 {
+        font-size: 1.3rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .production-card {
+        padding: 20px;
+    }
+
+    .production-list li {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}

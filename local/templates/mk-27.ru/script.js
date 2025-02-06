@@ -39,21 +39,21 @@ function selectCity(city, restart) {
 /*
 // Скрытие выбора города при клике вне этого блока.
 jQuery(function($){
-	$(document).mouseup( function(e){
-		var div = $(".header-city-change");
-		var p = $(".city-selected");
-		var mobile = $(".city-icon");
-		if (!div.is(e.target)
-	    && div.has(e.target).length === 0 ) {
-			if (!p.is(e.target)
-		    && p.has(e.target).length === 0 ) {
-				if (!mobile.is(e.target)
-			    && mobile.has(e.target).length === 0 ) {
-					div.fadeOut();
-				}	
-			}
-		}https://metiz-komplekt27.ru/
-	});
+$(document).mouseup( function(e){
+	var div = $(".header-city-change");
+	var p = $(".city-selected");
+	var mobile = $(".city-icon");
+	if (!div.is(e.target)
+		&& div.has(e.target).length === 0 ) {
+		if (!p.is(e.target)
+			&& p.has(e.target).length === 0 ) {
+			if (!mobile.is(e.target)
+				&& mobile.has(e.target).length === 0 ) {
+				div.fadeOut();
+			}	
+		}
+	}https://metiz-komplekt27.ru/
+});
 });
 */
 
