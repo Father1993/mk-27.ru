@@ -1,9 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("О компании");
-?><div class="page-banner">
-	<div class="page-banner-list desktop">
-		 <?$APPLICATION->IncludeComponent(
+?>
+<div class="page-banner">
+  <div class="page-banner-list desktop">
+    <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -11,24 +12,25 @@ $APPLICATION->SetTitle("О компании");
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/banner_list.php"
 	)
 );?>
-	</div>
-	<div class="page-banner-text">
-		<h1>
-		<?$APPLICATION->IncludeComponent(
+  </div>
+  <div class="page-banner-text">
+    <h1>
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
 		"AREA_FILE_SHOW" => "file",
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/banner_text.php"
 	)
-);?> </h1>
-	</div>
-	<div class="page-banner-map desktop">
- <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
-	</div>
-	<div class="page-banner-mobile mobile">
-		<div class="page-banner-list">
-			 <?$APPLICATION->IncludeComponent(
+);?>
+    </h1>
+  </div>
+  <div class="page-banner-map desktop">
+    <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
+  </div>
+  <div class="page-banner-mobile mobile">
+    <div class="page-banner-list">
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -36,37 +38,46 @@ $APPLICATION->SetTitle("О компании");
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/banner_list.php"
 	)
 );?>
-		</div>
-		<div class="page-banner-map">
- <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
-		</div>
-	</div>
+    </div>
+    <div class="page-banner-map">
+      <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
+    </div>
+  </div>
 </div>
+
+
+<?php /* Правильный фрейм ?>
 <div class="about-video">
-	 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/video.php"
-	)
-);?> <?php /* Правильный фрейм ?>
-    	<iframe width="100%" height="410px" loading="lazy" src="https://www.youtube.com/embed/gtF8M4WwzHs" title="Метиз Комплект" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <?php */ ?>
+  <?$APPLICATION->IncludeComponent(
+		"bitrix:main.include",
+		"",
+		Array(
+			"AREA_FILE_SHOW" => "file",
+			"PATH" => SITE_TEMPLATE_PATH."/include/about/video.php"
+		)
+	);?>
+  <iframe width="100%" height="410px" loading="lazy" src="https://www.youtube.com/embed/gtF8M4WwzHs"
+    title="Метиз Комплект" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+
 </div>
+<?php */ ?>
+
 <div class="page-main-block about">
- <section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
+  <section>
+    <h2>
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
 		"AREA_FILE_SHOW" => "file",
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_1_title.php"
 	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
+);?>
+    </h2>
+    <div class="text">
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -74,29 +85,10 @@ $APPLICATION->SetTitle("О компании");
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_1_text.php"
 	)
 );?>
-	</div>
- </section> <section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_2_title.php"
-	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_2_text.php"
-	)
-);?>
-	</div>
- </section>
-	<?$APPLICATION->IncludeComponent(
+    </div>
+  </section>
+
+  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"mini_gallery",
 	Array(
@@ -152,38 +144,21 @@ $APPLICATION->SetTitle("О компании");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?> <section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_3_title.php"
-	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_3_text.php"
-	)
 );?>
-	</div>
- </section> <section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
+
+  <section>
+    <h2>
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
 		"AREA_FILE_SHOW" => "file",
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_4_title.php"
 	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
+);?>
+    </h2>
+    <div class="text">
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -191,9 +166,9 @@ $APPLICATION->SetTitle("О компании");
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_4_text.php"
 	)
 );?>
-	</div>
-	<div class="text" style="text-align: center;">
-		 <?$APPLICATION->IncludeComponent(
+    </div>
+    <div class="text" style="text-align: center;">
+      <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -201,9 +176,9 @@ $APPLICATION->SetTitle("О компании");
 		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_4_image.php"
 	)
 );?>
-	</div>
- </section>
-	<?$APPLICATION->IncludeComponent(
+    </div>
+  </section>
+  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"stores",
 	Array(
@@ -260,28 +235,9 @@ $APPLICATION->SetTitle("О компании");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?> <section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_5_title.php"
-	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_5_text.php"
-	)
 );?>
-	</div>
- </section>
-	<?$APPLICATION->IncludeComponent(
+
+  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"certificates",
 	Array(
@@ -339,34 +295,7 @@ $APPLICATION->SetTitle("О компании");
 	)
 );?>
 
-<a href="/certificates/" style="text-decoration: underline;">
-    <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
-    	"PATH" => SITE_TEMPLATE_PATH . "/include/about/more_link.php"
-    ));?>
-</a>
-
-<section>
-	<h2>
-	<?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_6_title.php"
-	)
-);?> </h2>
-	<div class="text">
-		 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => SITE_TEMPLATE_PATH."/include/about/main_block_6_text.php"
-	)
-);?>
-	</div>
- </section>
-	<?$APPLICATION->IncludeComponent(
+  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"mini_gallery",
 	Array(
@@ -423,4 +352,5 @@ $APPLICATION->SetTitle("О компании");
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
-</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+</div>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
