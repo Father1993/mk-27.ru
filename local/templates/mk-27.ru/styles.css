@@ -842,3 +842,8 @@ footer .copyrights {
         gap: 10px;
     }
 }
+
+.bx-panel-folded {
+    opacity: 70%;
+    top: 100px;
+}
