@@ -246,23 +246,26 @@ AddEventHandler("main", "OnAfterUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnAfterUserUpdate", "OnBeforeUserUpdateHandler");
 function OnBeforeUserUpdateHandler(&$arFields)
 {
-    $logDir = $_SERVER["DOCUMENT_ROOT"] . "/local/logs";
+    $logDir = $_SERVER["DOCUMENT_ROOT"] . "/ADEV";
     if (!file_exists($logDir)) {
         mkdir($logDir, 0777, true);
     }
 
-    $logFile = $logDir . "/user_registration.log";
+    $logFile = $logDir . "/after_log.txt";
     define("LOG_FILENAME", $logFile);
 
     // Проверяем размер файла
     if (file_exists($logFile) && filesize($logFile) > 5 * 1024 * 1024) { // 5MB
         // Создаем архивную копию
-        $archiveFile = $logDir . "/user_registration_" . date('Y-m-d_H-i-s') . ".log";
+        $archiveFile = $logDir . "/after_log_" . date('Y-m-d_H-i-s') . ".txt";
         rename($logFile, $archiveFile);
     }
 
-    $logData = date('Y-m-d H:i:s') . " - " . print_r($arFields, true) . "\n";
-    AddMessage2Log($logData);
+    $logData = date('Y-m-d H:i:s') . " - Обновление пользователя:\n";
+    $logData .= print_r($arFields, true) . "\n";
+    $logData .= "-------------------\n";
+    
+    file_put_contents($logFile, $logData, FILE_APPEND);
     
     $arFields["LOGIN"] = $arFields["EMAIL"];
     return $arFields;
