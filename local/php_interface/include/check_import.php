@@ -2,15 +2,25 @@
 // Функция проверки статуса импорта
 function checkImportStatus()
 {
-    $logFile = $_SERVER["DOCUMENT_ROOT"]."/local/logs/import_1c.log";
-    $errorFile = $_SERVER["DOCUMENT_ROOT"]."/local/logs/import_1c_errors.log";
+    // Определяем директорию для логов
+    $logDir = $_SERVER["DOCUMENT_ROOT"]."/ADEV";
+    
+    // Создаем директорию если её нет
+    if (!file_exists($logDir)) {
+        mkdir($logDir, 0777, true);
+    }
+    
+    $logFile = $logDir."/after_log.txt";
+    $errorFile = $logDir."/import_errors.txt";
     
     if (file_exists($logFile)) {
         $log = file_get_contents($logFile);
         if (strpos($log, "Ошибка") !== false) {
-            $errors = "Найдены ошибки в процессе импорта:\n";
+            $errors = "Дата: " . date('Y-m-d H:i:s') . "\n";
+            $errors .= "Найдены ошибки в процессе импорта:\n";
             $errors .= $log;
-            file_put_contents($errorFile, $errors);
+            $errors .= "-------------------\n";
+            file_put_contents($errorFile, $errors, FILE_APPEND);
             
             // Отправка уведомления администратору
             CEvent::Send(
