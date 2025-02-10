@@ -7,7 +7,7 @@ About script: https://github.com/MashinaMashina/bx_1c_sync
 /*
  * Далее ввести пароль
  */
-$password = '';
+$password = 'pnd1350wj';
 
 
  /* app.php => */ ?><?php
