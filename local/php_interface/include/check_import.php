@@ -35,4 +35,4 @@ function checkImportStatus()
 }
 
 // Запускаем проверку после каждого импорта
-AddEventHandler("catalog", "OnSuccessCatalogImport1C", "checkImportStatus");
+AddEventHandler("catalog", "OnSuccessCatalogImport1C", "checkImportStatus");ffffffffffffffffffffffffffffffffffffff
