@@ -67,3 +67,4 @@ Host: mk-27.ru
 Clean-param: id&order&setreg&back_url_admin&logout&sphrase_id&action&utm_source&openstat&sort&sort_by&arrFilter&display&bxajaxid&view_mode&set_filter&alfaction&SORT_TO&SORT_FIELD&VIEW&bitrix_include_areas&clear_cache&etext
 Clean-param: arrFilter&arrFilter_49_2322626082&arrFilter_54_3114957494&arrFilter_61_289485416&arrFilter_71_4131183752&arrFilter_P1_MIN&arrFilter_P1_MAX&arrFilter_52_2322626082
 Sitemap: http://mk-27.ru/sitemap.xml
+Sitemap: https://mk-27.ru/sitemap.xml

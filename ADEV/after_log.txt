@@ -1,0 +1,106 @@
+2025-02-25 21:14:14 - Обновление пользователя:
+Array
+(
+    [LOGIN] => bbeaf
+    [NAME] => 
+    [LAST_NAME] => 
+    [PASSWORD] => Safecheck123
+    [CHECKWORD] => 7chz6vnxm0vwruwgi76ag3qgr2eco7wp
+    [~CHECKWORD_TIME] => now()
+    [CONFIRM_PASSWORD] => Safecheck123
+    [EMAIL] => bbeaf@zxc.zxc
+    [PHONE_NUMBER] => 
+    [ACTIVE] => Y
+    [CONFIRM_CODE] => 
+    [SITE_ID] => s1
+    [LANGUAGE_ID] => ru
+    [USER_IP] => 212.192.158.169
+    [USER_HOST] => 212.192.158.169
+    [GROUP_ID] => Array
+        (
+            [0] => 5
+        )
+
+    [LID] => s1
+    [USER_ID] => 9211
+    [RESULT_MESSAGE] => Array
+        (
+            [MESSAGE] => Вы были успешно зарегистрированы.
+            [TYPE] => OK
+            [ID] => 9211
+        )
+
+)
+
+-------------------
+2025-02-25 21:50:06 - Обновление пользователя:
+Array
+(
+    [LOGIN] => bbeaf
+    [NAME] => 
+    [LAST_NAME] => 
+    [PASSWORD] => Safecheck123
+    [CHECKWORD] => 9msjqmiktv5sr46l2x3o2r2smajczuf6
+    [~CHECKWORD_TIME] => now()
+    [CONFIRM_PASSWORD] => Safecheck123
+    [EMAIL] => bbeaf@zxc.zxc
+    [PHONE_NUMBER] => 
+    [ACTIVE] => Y
+    [CONFIRM_CODE] => 
+    [SITE_ID] => s1
+    [LANGUAGE_ID] => ru
+    [USER_IP] => 212.192.158.169
+    [USER_HOST] => 212.192.158.169
+    [GROUP_ID] => Array
+        (
+            [0] => 5
+        )
+
+    [LID] => s1
+    [RESULT_MESSAGE] => Array
+        (
+            [MESSAGE] => Пользователь с логином "bbeaf" уже существует.<br>
+            [TYPE] => ERROR
+        )
+
+)
+
+-------------------
+2025-02-26 00:53:03 - Обновление пользователя:
+Array
+(
+    [LOGIN] => Robertphesy
+    [EMAIL] => sukecejoz02@gmail.com
+    [PASSWORD] => v8hs1TqIc2%L
+    [CONFIRM_PASSWORD] => v8hs1TqIc2%L
+    [UF_ISURFACE] => Да
+    [UF_ORGNAME] => Robertphesy
+    [UF_ORGINN] => Robertphesy
+    [UF_FIO] => RobertphesyIA
+    [UF_POST_ADDRESS] => 
+    [UF_URADDRESS] => Duverge
+    [UF_HEAD_PHONE] => 82346569995
+    [UF_KPPORG] => Robertphesy
+    [UF_CONTACT_PERSON] => RobertphesyIA
+    [UF_DELIVERY_ADDR] => 
+    [GROUP_ID] => Array
+        (
+            [0] => 5
+        )
+
+    [CHECKWORD] => mo2tjibt2cwqdcqmwiu3d0ste33ocq9a
+    [~CHECKWORD_TIME] => now()
+    [ACTIVE] => Y
+    [CONFIRM_CODE] => 
+    [LID] => s1
+    [LANGUAGE_ID] => ru
+    [USER_IP] => 178.176.75.211
+    [USER_HOST] => 178.176.75.211
+    [LAST_NAME] => RobertphesyIA
+    [NAME] => 
+    [SECOND_NAME] => 
+    [AUTO_TIME_ZONE] => 
+    [USER_ID] => 9212
+)
+
+-------------------

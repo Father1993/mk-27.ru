@@ -37,7 +37,7 @@ if($this->StartResultCache())
 			"GLOBAL_ACTIVE"=>"Y",
 			"IBLOCK_ACTIVE"=>"Y",
 			"<="."DEPTH_LEVEL" => $arParams["DEPTH_LEVEL"],
-		    ">UF_ELEMENT_CNT" => 0,
+		    // ">UF_ELEMENT_CNT" => 0,
 		);
 		$arOrder = array(
 			"left_margin"=>"asc",
