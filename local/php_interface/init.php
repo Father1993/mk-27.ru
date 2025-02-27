@@ -271,24 +271,6 @@ function OnBeforeUserUpdateHandler(&$arFields)
     return $arFields;
 }
 
-// Обработчики для исправления почты
-AddEventHandler("main", "OnBeforeEventAdd", array("MailFixHelper", "OnBeforeEventAddHandler"));
-AddEventHandler("main", "OnBeforeEventSend", array("MailFixHelper", "OnBeforeEventSendHandler"));
-
-class MailFixHelper
-{
-    public static function OnBeforeEventAddHandler(&$event, &$lid, &$arFields)
-    {
-        $arFields["DEFAULT_EMAIL_FROM"] = "sale@mk-27.ru";
-        $arFields["EMAIL_FROM"] = "sale@mk-27.ru";
-    }
-    
-    public static function OnBeforeEventSendHandler(&$arFields, &$arTemplate)
-    {
-        $arFields["EMAIL_FROM"] = "sale@mk-27.ru";
-    }
-}
-
 // // Обработчик для удаления фотографий при импорте из 1С  !!!!!!!! ЗАЧЕМ ДУБЛИРОВАТЬ ШТАТНЫЙ ФУННКЦИОНАЛ ИЗ-зА НЕГО ОШИБКИ БЫЛИ С ФОТО НАВРЕНО!
 // AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "DeletePhotosOn1CImport");
 
