@@ -1,0 +1,1 @@
+<a href="mailto:director_sh@mk-27.ru">director_sh@mk-27.ru</a>

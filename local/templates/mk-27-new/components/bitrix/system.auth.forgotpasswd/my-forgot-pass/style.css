@@ -1,0 +1,197 @@
+:root {
+    --primary-color: #ee3831;
+    --primary-hover: #d62d26;
+    --text-color: #2c3e50;
+    --muted-color: #7f8c8d;
+    --border-color: #e9ecef;
+    --bg-light: #f8f9fa;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+.forgot-password-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.forgot-password-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border: none;
+}
+
+.forgot-password-card-body {
+    padding: 40px;
+}
+
+.forgot-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: white;
+    font-size: 2rem;
+}
+
+.forgot-title {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.forgot-subtitle {
+    color: var(--muted-color);
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(238, 56, 49, 0.1);
+    outline: none;
+}
+
+.form-note {
+    color: var(--muted-color);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(238, 56, 49, 0.2);
+}
+
+.alert {
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    border: none;
+}
+
+.alert-danger {
+    background: #fff5f5;
+    color: #c0392b;
+}
+
+.alert-success {
+    background: #f0fff4;
+    color: #38a169;
+}
+
+.captcha-wrapper {
+    margin-bottom: 24px;
+}
+
+.captcha-wrapper img {
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    margin-bottom: 12px;
+    max-width: 100%;
+    height: auto;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.auth-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.auth-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .forgot-password-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .forgot-password-card-body {
+        padding: 24px;
+    }
+
+    .forgot-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .forgot-title {
+        font-size: 20px;
+    }
+
+    .forgot-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+}

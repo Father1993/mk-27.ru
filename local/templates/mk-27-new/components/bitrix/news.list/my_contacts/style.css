@@ -1,0 +1,263 @@
+.contacts-item {
+    padding: 15px;
+    border-bottom: 1px #ccc solid;
+}
+.contacts-item:last-of-type {
+    border-bottom: none;
+}
+.contacts-item .title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.contacts-item .address {
+    padding-bottom: 10px;
+}
+.contacts-item .address:before {
+    content: url(/local/templates/mk-27.ru/assets/images/contacts-location.svg);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    display: inline-block;
+}
+.contacts-item .phone:before {
+    content: url(/local/templates/mk-27.ru/assets/images/contacts-phone.svg);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.contacts-item .v-line {
+    border-right: 1px #ccc solid;
+    margin: 0 10px 0 18px;
+}
+.contacts-item .v-line:last-of-type {
+    display: none;
+}
+
+.contacts-item .schedule {
+}
+.contacts-item .schedule img {
+    /*max-height: 18px;*/
+    margin-right: 3px;
+    padding: 1px;
+}
+
+.contacts-item .phones {
+    margin-top: 5px;
+}
+
+.contacts-item .phones .phone {
+    width: 160px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.contacts-item .email {
+    padding-top: 10px;
+}
+
+.contacts-item .email img {
+    max-width: 18px;
+    margin-right: 3px;
+    padding: 1px;
+}
+
+.contacts-item .text {
+    padding: 10px 0 0;
+}
+.scheduler-img img {
+    max-height: 18px;
+}
+.scheduler-img {
+    float: left;
+    margin-right: 3px;
+}
+
+@media (max-width: 576px) {
+    .contacts-item .v-line {
+        display: none;
+    }
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.contact-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-inner {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.address-block,
+.schedule-block,
+.phones-block,
+.email-block {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.phones-block {
+    flex-direction: column;
+}
+
+.address-block i,
+.schedule-block i,
+.phone-item i,
+.email-block i {
+    color: #ee3831;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.phone-item:last-child {
+    margin-bottom: 0;
+}
+
+.phone-item.hidden-phone {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+}
+
+.show-more-phones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ee3831;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.show-more-phones:hover {
+    opacity: 0.8;
+}
+
+.show-more-phones i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.phones-block.show-all .show-more-phones i {
+    transform: rotate(45deg);
+}
+
+.show-more-phones .hide-text {
+    display: none;
+}
+
+.phones-block.show-all .show-more-phones .show-text {
+    display: none;
+}
+
+.phones-block.show-all .show-more-phones .hide-text {
+    display: inline;
+}
+
+.phones-block.show-all .hidden-phone {
+    opacity: 1;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.phone-item a,
+.email-block a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.phone-item a:hover,
+.email-block a:hover {
+    color: #ee3831;
+}
+
+.card-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.detail-text {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+    .contacts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .card-inner {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .show-more-phones {
+        font-size: 13px;
+    }
+}

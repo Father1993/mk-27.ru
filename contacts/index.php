@@ -12,38 +12,38 @@ if ($city_code == "ysl") $active_ysl = "active";
 ?>
 
 <div class="new-contacts">
-    
-    <h1>Контакты</h1>
-    
-    <div class="container no-padding-container">
-    	<div class="row">
-    		<div class="col-12 col-md-4">
-    			<div class="city-change city-change-khb <?=$active_khb?>" onclick="change_city('khb');">Хабаровск</div>
-    		</div>
-    		<div class="col-12 col-md-4">
-    			<div class="city-change city-change-vld <?=$active_vld?>" onclick="change_city('vld');">Владивосток</div>
-    		</div>
-    		<div class="col-12 col-md-4">
-    			<div class="city-change city-change-ysl <?=$active_ysl?>" onclick="change_city('ysl');">Южно-Сахалинск</div>
-    		</div>
-    	</div>
+
+  <h1>Контакты</h1>
+
+  <div class="container no-padding-container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="city-change city-change-khb <?=$active_khb?>" onclick="change_city('khb');">Хабаровск</div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="city-change city-change-vld <?=$active_vld?>" onclick="change_city('vld');">Владивосток</div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="city-change city-change-ysl <?=$active_ysl?>" onclick="change_city('ysl');">Южно-Сахалинск</div>
+      </div>
     </div>
-    
-    <div class="contacts contacts-khb <?=$active_khb?>">
-    
-    	<?php $contacts_city_name = "Хабаровск"; ?>
-    	<?php $contacts_city_code = "khb"; ?>
-    
-        <?php 
+  </div>
+
+  <div class="contacts contacts-khb <?=$active_khb?>">
+
+    <?php $contacts_city_name = "Хабаровск"; ?>
+    <?php $contacts_city_code = "khb"; ?>
+
+    <?php 
     		global $arrFilterContacts;
     		$arrFilterContacts = array(
     		    "PROPERTY_CITY_VALUE" => $contacts_city_name
     		);
 		?>
-		
-    	<?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"contacts", 
+        	"my_contacts", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -109,17 +109,17 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-    
-		<?php 
+
+    <?php 
 		global $arrFilterHTeam;
 		$arrFilterHTeam = array(
 		    "PROPERTY_CITY_VALUE" => $contacts_city_name
 		);
 		?>
-    
-        <?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"team", 
+        	"my_team", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -187,24 +187,24 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-    
-    </div>
-    
-	<div class="contacts contacts-vld <?=$active_vld?>">
-    
-    	<?php $contacts_city_name = "Владивосток"; ?>
-    	<?php $contacts_city_code = "vld"; ?>
-    
-        <?php 
+
+  </div>
+
+  <div class="contacts contacts-vld <?=$active_vld?>">
+
+    <?php $contacts_city_name = "Владивосток"; ?>
+    <?php $contacts_city_code = "vld"; ?>
+
+    <?php 
     		global $arrFilterContacts;
     		$arrFilterContacts = array(
     		    "PROPERTY_CITY_VALUE" => $contacts_city_name
     		);
 		?>
-		
-    	<?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"contacts", 
+        	"my_contacts", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -269,17 +269,17 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-    
-		<?php 
+
+    <?php 
 		global $arrFilterHTeam;
 		$arrFilterHTeam = array(
 		    "PROPERTY_CITY_VALUE" => $contacts_city_name
 		);
 		?>
-    
-        <?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"team", 
+        	"my_team", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -347,24 +347,24 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-            
-    </div>
-    
-	<div class="contacts contacts-ysl <?=$active_ysl?>">
-    
-    	<?php $contacts_city_name = "Южно-Сахалинск"; ?>
-    	<?php $contacts_city_code = "ysl"; ?>
-    
-        <?php 
+
+  </div>
+
+  <div class="contacts contacts-ysl <?=$active_ysl?>">
+
+    <?php $contacts_city_name = "Южно-Сахалинск"; ?>
+    <?php $contacts_city_code = "ysl"; ?>
+
+    <?php 
     		global $arrFilterContacts;
     		$arrFilterContacts = array(
     		    "PROPERTY_CITY_VALUE" => $contacts_city_name
     		);
 		?>
-		
-    	<?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"contacts", 
+        	"my_contacts", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -429,17 +429,17 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-    
-		<?php 
+
+    <?php 
 		global $arrFilterHTeam;
 		$arrFilterHTeam = array(
 		    "PROPERTY_CITY_VALUE" => $contacts_city_name
 		);
 		?>
-    
-        <?$APPLICATION->IncludeComponent(
+
+    <?$APPLICATION->IncludeComponent(
         	"bitrix:news.list", 
-        	"team", 
+        	"my_team", 
         	array(
         		"ACTIVE_DATE_FORMAT" => "d.m.Y",
         		"ADD_SECTIONS_CHAIN" => "N",
@@ -507,8 +507,8 @@ if ($city_code == "ysl") $active_ysl = "active";
         	),
         	false
         );?>
-    
-    </div>
+
+  </div>
 
 </div>
 

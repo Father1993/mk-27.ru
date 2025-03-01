@@ -1,0 +1,10 @@
+.stores {
+	margin-top: 15px;
+}
+.stores p {
+	text-align: center;
+}
+.stores > .row > div {
+	text-align: center;
+	margin-top: 15px;
+}

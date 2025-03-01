@@ -1,0 +1,23 @@
+.team_service {
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+.team_service .col {
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	border: 1px #ccc solid;
+} 
+.team_service .col.image {
+	justify-content: center;
+}
+.team_service img {
+	max-width: 100px;
+	border-radius: 50%;
+}
+
+@media (max-width: 991px) {
+	.team_service .head {
+		display: none;
+	}
+}

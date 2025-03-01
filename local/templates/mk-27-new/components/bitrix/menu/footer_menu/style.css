@@ -1,0 +1,14 @@
+.footer-menu {
+	padding: 0;
+	list-style: none;
+}
+.footer-menu li {
+	margin-bottom: 7px;
+}
+footer .arrow {
+	display: none;
+}
+
+.main-menu-mobile-block .arrow {
+	padding-left: 5px;
+}
