@@ -297,3 +297,6 @@ function OnBeforeUserUpdateHandler(&$arFields)
 //     }
 // }
 
+
+// Подключаем инициализацию обмена с 1С
+includeFile("/local/php_interface/include/1c_exchange_init.php");
