@@ -1,12 +1,8 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-use Bitrix\Main\Application;
-
-$request = Application::getInstance()->getContext()->getRequest();
-$protocol = $request->isHttps() ? 'https' : 'http';
-$server = $request->getServer();
-$url = $protocol . '://' . $server->getServerName() . $request->getRequestUri();
-$url = explode('?', $url)[0];
+$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$url = explode('?', $url);
+$url = $url[0];
 
 global $page;
 $page = explode("/", $APPLICATION->GetCurPage())[1];
@@ -25,19 +21,22 @@ $arPriceTypeItem = $res->fetch();
 global $priceTypeYsl;
 $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
 
-// Подключаем файл с ассетами
-require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-  <link itemprop="url" href="<?=$url?>" />
-  <link rel="canonical" href="<?=$url?>" />
   <base href="<?=$url?>" />
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mk-27.ru/">
+  <meta property="og:site_name" content="Метиз Комплект">
+
+  <link itemprop="url" href="<?=$url?>" />
+  <link rel="canonical" href="<?=$url?>" />
   <link rel="shortcut icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/64.png" />
   <link rel="apple-touch-icon-precomposed" sizes="180x180"
     href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/180.png" />
@@ -52,34 +51,133 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
   <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/76.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/72.png" />
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/57.png" />
+  <link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/safari-pinned-tab.svg" color="#ee3831">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-
-  <link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicons/safari-pinned-tab.svg" color="#ee3831">
-
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
 
   <?php $APPLICATION->ShowProperty("og-title"); ?>
   <?php $APPLICATION->ShowProperty("og-description"); ?>
   <?php $APPLICATION->ShowProperty("og-image"); ?>
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mk-27.ru/">
-  <meta property="og:site_name" content="Метиз Комплект">
+  <?php
+		
+			use Bitrix\Main\UI\Extension;
+			Extension::load('ui.bootstrap4');
+			
+			$APPLICATION->SetAdditionalCSS ("/bitrix/css/main/font-awesome.css");
+			$APPLICATION->SetAdditionalCSS (SITE_TEMPLATE_PATH . "/assets/fonts/fonts.css");
+			$APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/jquery-3.6.0.min.js");
+			$APPLICATION->SetAdditionalCSS (SITE_TEMPLATE_PATH . "/assets/plugins/fancybox/fancybox.css");
+			$APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/fancybox/fancybox.umd.js");
+			$APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/script.js");
+
+      $APPLICATION->SetAdditionalCSS (SITE_TEMPLATE_PATH . "/assets/plugins/owl_carousel/owl.carousel.min.css");
+      $APPLICATION->SetAdditionalCSS (SITE_TEMPLATE_PATH . "/assets/plugins/owl_carousel/owl.theme.default.min.css");
+      $APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/owl_carousel/owl.carousel.min.js");
+      $APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/jquery.mask.min.js");
+      $APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/api.js");
+			$APPLICATION->AddHeadScript (SITE_TEMPLATE_PATH . "/assets/plugins/jquery.validate.min.js");
+
+
+
+      if ($page == "vakansii" || $page == "contacts") {
+        $APPLICATION->AddHeadScript ("https://maps.api.2gis.ru/2.0/loader.js");
+			}
+
+		?>
 
   <?php $APPLICATION->ShowHead(); ?>
+
   <title itemprop="headline"><?php $APPLICATION->ShowTitle(); ?></title>
 
-  <!-- Подключаем Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function(m, e, t, r, i, k, a) {
+    m[i] = m[i] || function() {
+      (m[i].a = m[i].a || []).push(arguments)
+    };
+    m[i].l = 1 * new Date();
+    for (var j = 0; j < document.scripts.length; j++) {
+      if (document.scripts[j].src === r) {
+        return;
+      }
+    }
+    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+  })
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(84934894, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    ecommerce: "dataLayer"
+  });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/84934894" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGCR8WCW8N"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-GGCR8WCW8N');
+  </script>
+
+  <?php 
+        global $USER;
+        if (!$USER) $USER = new CUser();
+        if (($USER->GetID() != 1) && ($USER->GetID() != 5016)):
+        ?>
+  <script src="//code.jivo.ru/widget/bPEQ6aHDNW" async></script>
+  <?php endif; ?>
 
 </head>
 
 <body>
 
+  <!-- Top.Mail.Ru counter -->
+  <script type="text/javascript">
+  var _tmr = window._tmr || (window._tmr = []);
+  _tmr.push({
+    id: "3300765",
+    type: "pageView",
+    start: (new Date()).getTime()
+  });
+  (function(d, w, id) {
+    if (d.getElementById(id)) return;
+    var ts = d.createElement("script");
+    ts.type = "text/javascript";
+    ts.async = true;
+    ts.id = id;
+    ts.src = "https://top-fwz1.mail.ru/js/code.js";
+    var f = function() {
+      var s = d.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(ts, s);
+    };
+    if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+      f();
+    }
+  })(document, window, "tmr-code");
+  </script>
+  <noscript>
+    <div><img src="https://top-fwz1.mail.ru/counter?id=3300765;js=na" style="position:absolute;left:-9999px;"
+        alt="Top.Mail.Ru" /></div>
+  </noscript>
+  <!-- /Top.Mail.Ru counter -->
+
   <div itemprop="isPartOf" itemscope itemtype="https://schema.org/WebSite">
-    <link itemprop="url" href="<?=$server->getServerName()?>" />
+    <link itemprop="url" href="<?=$_SERVER['HTTP_HOST']?>" />
   </div>
 
   <?php $APPLICATION->ShowPanel(); ?>
@@ -145,11 +243,11 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
           </p>
 
           <?php 
-            global $arrFilterHeaderPhones;
-            $arrFilterHeaderPhones = array(
-                "PROPERTY_CITY_VALUE" => $city_name
-            );
-          ?>
+                		global $arrFilterHeaderPhones;
+                		$arrFilterHeaderPhones = array(
+                		    "PROPERTY_CITY_VALUE" => $city_name
+                		);
+                		?>
 
           <?$APPLICATION->IncludeComponent(
             "bitrix:news.list", 
@@ -220,24 +318,24 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
 
         <div class="header-menu desktop">
           <?$APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "header_menu",
-            array(
-              "ALLOW_MULTI_SELECT" => "N",
-              "CHILD_MENU_TYPE" => "top",
-              "DELAY" => "N",
-              "MAX_LEVEL" => "2",
-              "MENU_CACHE_GET_VARS" => array(
+              "bitrix:menu",
+              "header_menu",
+              array(
+                "ALLOW_MULTI_SELECT" => "N",
+                "CHILD_MENU_TYPE" => "top",
+                "DELAY" => "N",
+                "MAX_LEVEL" => "2",
+                "MENU_CACHE_GET_VARS" => array(
+                ),
+                "MENU_CACHE_TIME" => "3600",
+                "MENU_CACHE_TYPE" => "Y",
+                "MENU_CACHE_USE_GROUPS" => "Y",
+                "ROOT_MENU_TYPE" => "top",
+                "USE_EXT" => "N",
+                "COMPONENT_TEMPLATE" => "header_menu"
               ),
-              "MENU_CACHE_TIME" => "3600",
-              "MENU_CACHE_TYPE" => "Y",
-              "MENU_CACHE_USE_GROUPS" => "Y",
-              "ROOT_MENU_TYPE" => "top",
-              "USE_EXT" => "N",
-              "COMPONENT_TEMPLATE" => "header_menu"
-            ),
-            false
-          );?>
+              false
+            );?>
         </div>
 
         <div class="header-city">
@@ -278,13 +376,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
         </div>
 
         <div class="header-social">
-          <a href="https://wa.me/79145443019" target="_blank">
-            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-wa.svg">
-          </a>
-          <a href="https://t.me/metiz_komplekt27" target="_blank">
-            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-telegram.svg">
-          </a>
-
+          <a href="https://wa.me/79145443019" target="_blank"><img
+              src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-wa.svg"></a>
+          <a href="https://t.me/metiz_komplekt27" target="_blank"><img
+              src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-telegram.svg"></a>
         </div>
 
         <div class="header-search">
@@ -325,17 +420,17 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
         <?php ?>
         <div class="header-profile">
           <?php global $USER; if ($USER->IsAuthorized()): ?>
-          <a href="/auth/personal.php">
+          <a href="/personal_section/index.php?SECTION=private">
             <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile_logged.png">
             <div>Профиль</div>
           </a>
           <?php else: ?>
-          <a class="log-reg-link" href="/auth/">
+          <a class="log-reg-link" href="/personal_section/index.php?SECTION=private">
             <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile.png">
             <div>Вход</div>
           </a>
           <div class="enter-or">ИЛИ</div>
-          <a class="log-reg-link head-reg-link" href="/auth/register.php">
+          <a class="log-reg-link head-reg-link" href="/personal_section/registration.php?type=legal">
             <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/registration.png">
             <div>Регистрация</div>
           </a>
@@ -391,24 +486,24 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
 
     <div class="main-menu desktop">
       <?$APPLICATION->IncludeComponent(
-        "bitrix:menu",
-        "main_catalog_menu",
-        array(
-          "ALLOW_MULTI_SELECT" => "N",
-          "CHILD_MENU_TYPE" => "left",
-          "DELAY" => "N",
-          "MAX_LEVEL" => "1",
-          "MENU_CACHE_GET_VARS" => array(
+          "bitrix:menu",
+          "main_catalog_menu",
+          array(
+            "ALLOW_MULTI_SELECT" => "N",
+            "CHILD_MENU_TYPE" => "left",
+            "DELAY" => "N",
+            "MAX_LEVEL" => "1",
+            "MENU_CACHE_GET_VARS" => array(
+            ),
+            "MENU_CACHE_TIME" => "36000000",
+            "MENU_CACHE_TYPE" => "A",
+            "MENU_CACHE_USE_GROUPS" => "Y",
+            "ROOT_MENU_TYPE" => "left",
+            "USE_EXT" => "Y",
+            "COMPONENT_TEMPLATE" => "main_catalog_menu"
           ),
-          "MENU_CACHE_TIME" => "36000000",
-          "MENU_CACHE_TYPE" => "A",
-          "MENU_CACHE_USE_GROUPS" => "Y",
-          "ROOT_MENU_TYPE" => "left",
-          "USE_EXT" => "Y",
-          "COMPONENT_TEMPLATE" => "main_catalog_menu"
-        ),
-        false
-      );?>
+          false
+        );?>
     </div>
 
     <div class="main-block index-page">
@@ -423,21 +518,21 @@ require($_SERVER["DOCUMENT_ROOT"]."/local/templates/mk-27-new/include/assets.php
             <div class="row">
               <div class="main-menu desktop">
                 <?$APPLICATION->IncludeComponent(
-                  "bitrix:menu",
-                  "main_catalog_menu",
-                  Array(
-                    "ALLOW_MULTI_SELECT" => "N",
-                    "CHILD_MENU_TYPE" => "left",
-                    "DELAY" => "N",
-                    "MAX_LEVEL" => "1",
-                    "MENU_CACHE_GET_VARS" => array(""),
-                    "MENU_CACHE_TIME" => "3600",
-                    "MENU_CACHE_TYPE" => "A",
-                    "MENU_CACHE_USE_GROUPS" => "Y",
-                    "ROOT_MENU_TYPE" => "left",
-                    "USE_EXT" => "Y"
-                  )
-                );?>
+                    "bitrix:menu",
+                    "main_catalog_menu",
+                    Array(
+                      "ALLOW_MULTI_SELECT" => "N",
+                      "CHILD_MENU_TYPE" => "left",
+                      "DELAY" => "N",
+                      "MAX_LEVEL" => "1",
+                      "MENU_CACHE_GET_VARS" => array(""),
+                      "MENU_CACHE_TIME" => "3600",
+                      "MENU_CACHE_TYPE" => "A",
+                      "MENU_CACHE_USE_GROUPS" => "Y",
+                      "ROOT_MENU_TYPE" => "left",
+                      "USE_EXT" => "Y"
+                    )
+                  );?>
               </div>
             </div>
           </div>
