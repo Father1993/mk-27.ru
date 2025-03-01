@@ -23,17 +23,17 @@ if ($USER->IsAuthorized()) {
         false
     );?>
 <?$APPLICATION->IncludeComponent(
-        "bitrix:system.auth.form", 
-        "my", 
-        array(
-            "FORGOT_PASSWORD_URL" => "/auth/forget.php",
-            "PROFILE_URL" => "/auth/personal.php",
-            "REGISTER_URL" => "/auth/registration.php",
-            "SHOW_ERRORS" => "N",
-            "COMPONENT_TEMPLATE" => "my"
-        ),
-        false
-    );?>
+	"bitrix:system.auth.form", 
+	"my", 
+	array(
+		"FORGOT_PASSWORD_URL" => "/auth/forget.php",
+		"PROFILE_URL" => "/auth/personal.php",
+		"REGISTER_URL" => "/auth/registration.php",
+		"SHOW_ERRORS" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
 <?
 } else {
     // Контент для неавторизованных пользователей
