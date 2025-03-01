@@ -11,7 +11,7 @@
         {
             $APPLICATION->SetPageProperty("og-title", "<meta property='og:title' content='".$APPLICATION->GetTitle()."'>");
             $APPLICATION->SetPageProperty("og-description", "<meta property='og:description' content='".$APPLICATION->GetProperty("description")."'>");
-            $APPLICATION->SetPageProperty("og-image", "<meta property='og:image' content='https://" . SITE_SERVER_NAME . "/local/templates/mk-27.ru/assets/images/mkOpenGraph.png'>");
+            $APPLICATION->SetPageProperty("og-image", "<meta property='og:image' content='https://" . SITE_SERVER_NAME . "/local/templates/mk-27-new/assets/images/mkOpenGraph.png'>");
         }
         ?>
 
@@ -172,7 +172,7 @@
 <div itemscope itemtype="https://schema.org/Organization" style="display: none;">
   <meta itemprop="name" content="Метиз Комплект" />
   <link itemprop="url" href="<?=$_SERVER['HTTP_HOST']?>" />
-  <link itemprop="logo" href="<?=$_SERVER['HTTP_HOST']?>/local/templates/mk-27.ru/images/logo.png" />
+  <link itemprop="logo" href="<?=$_SERVER['HTTP_HOST']?>/local/templates/mk-27-new/images/logo.png" />
   <meta itemprop="description"
     content="Купить крепеж, строительное оборудование и инструменты оптом и в розницу в компании Метиз Комплект. Доступные цены. Быстрая доставка во Владивостоке, Хабаровске, Южно-Сахалинске.  Обращайтесь!" />
   <meta itemprop="email" content="919044@mail.ru" />

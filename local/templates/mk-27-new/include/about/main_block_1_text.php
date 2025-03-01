@@ -187,7 +187,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
         <div class="logistics-features">
           <div class="feature-item">
             <div class="feature-icon">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/asortiment.png" alt="Ассортимент"
+              <img src="/local/templates/mk-27-new/include/about/part-logo/asortiment.png" alt="Ассортимент"
                 class="icon-image">
             </div>
             <h4>Складские площади</h4>
@@ -195,7 +195,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/delivery.png" alt="Доставка"
+              <img src="/local/templates/mk-27-new/include/about/part-logo/delivery.png" alt="Доставка"
                 class="icon-image">
             </div>
             <h4>Транспортные партнеры</h4>
@@ -205,7 +205,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/stores.png" alt="Склады" class="icon-image">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/stores.png" alt="Склады" class="icon-image">
             </div>
             <h4>Ассортимент</h4>
             <p>Свыше 35 000 позиций в постоянном наличии</p>
@@ -223,7 +223,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
         <div class="client-grid">
           <div class="client-item">
             <div class="client-logo">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/РусГидро.png" alt="РусГидро">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/РусГидро.png" alt="РусГидро">
             </div>
             <div class="client-info">
               <h5>ПАО «РусГидро»</h5>
@@ -232,7 +232,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="client-item">
             <div class="client-logo">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/gasprom.png" alt="Газпром">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/gasprom.png" alt="Газпром">
             </div>
             <div class="client-info">
               <h5>ПАО «Газпром»</h5>
@@ -241,7 +241,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="client-item">
             <div class="client-logo">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/vel.jpg" alt="Велесстрой">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/vel.jpg" alt="Велесстрой">
             </div>
             <div class="client-info">
               <h5>ООО «Велесстрой»</h5>
@@ -250,7 +250,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="client-item">
             <div class="client-logo">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/nipgas.png" alt="НИПИГАЗ">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/nipgas.png" alt="НИПИГАЗ">
             </div>
             <div class="client-info">
               <h5>АО «НИПИГАЗ»</h5>
@@ -259,7 +259,7 @@ $yearsExperience = $currentYear - $startYear;  // Вычисляем разни�
           </div>
           <div class="client-item">
             <div class="client-logo">
-              <img src="/local/templates/mk-27.ru/include/about/part-logo/dgk.jpg" alt="ДГК">
+              <img src="/local/templates/mk-27-new/include/about/part-logo/dgk.jpg" alt="ДГК">
             </div>
             <div class="client-info">
               <h5>АО «ДГК»</h5>

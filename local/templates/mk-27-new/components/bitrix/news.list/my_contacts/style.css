@@ -15,7 +15,7 @@
     padding-bottom: 10px;
 }
 .contacts-item .address:before {
-    content: url(/local/templates/mk-27.ru/assets/images/contacts-location.svg);
+    content: url(/local/templates/mk-27-new/assets/images/contacts-location.svg);
     width: 18px;
     height: 18px;
     vertical-align: middle;
@@ -23,7 +23,7 @@
     display: inline-block;
 }
 .contacts-item .phone:before {
-    content: url(/local/templates/mk-27.ru/assets/images/contacts-phone.svg);
+    content: url(/local/templates/mk-27-new/assets/images/contacts-phone.svg);
     width: 18px;
     height: 18px;
     vertical-align: middle;
