@@ -1,32 +1,56 @@
 <?
-define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("");
 
-$userName = CUser::GetFullName();
-if (!$userName)
-	$userName = CUser::GetLogin();
-?>
-<script>
-	<?if ($userName):?>
-	BX.localStorage.set("eshop_user_name", "<?=CUtil::JSEscape($userName)?>", 604800);
-	<?else:?>
-	BX.localStorage.remove("eshop_user_name");
-	<?endif?>
+$USER = $GLOBALS["USER"];
 
-	<?if (isset($_REQUEST["backurl"]) && strlen($_REQUEST["backurl"])>0 && preg_match('#^/\w#', $_REQUEST["backurl"])):?>
-	document.location.href = "<?=CUtil::JSEscape($_REQUEST["backurl"])?>";
-	<?endif?>
-</script>
-
+if ($USER->IsAuthorized()) {
+    $userName = $USER->GetFullName();
+    if (!$userName)
+        $userName = $USER->GetLogin();
+    
+    // Контент для авторизованных пользователей
+    ?>
+<?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.confirmation", 
+        "my", 
+        array(
+            "CONFIRM_CODE" => "confirm_code",
+            "LOGIN" => "login",
+            "USER_ID" => "confirm_user_id",
+            "COMPONENT_TEMPLATE" => "my"
+        ),
+        false
+    );?>
+<?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.form", 
+        "my", 
+        array(
+            "FORGOT_PASSWORD_URL" => "/auth/forget.php",
+            "PROFILE_URL" => "/auth/personal.php",
+            "REGISTER_URL" => "/auth/registration.php",
+            "SHOW_ERRORS" => "N",
+            "COMPONENT_TEMPLATE" => "my"
+        ),
+        false
+    );?>
 <?
-$APPLICATION->SetTitle("Авторизация");
+} else {
+    // Контент для неавторизованных пользователей
+    ?>
+<?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.authorize",
+        "my-auth-form",
+        array(
+            "REGISTER_URL" => "/auth/registration.php",
+            "FORGOT_PASSWORD_URL" => "/auth/forgot.php",
+            "PROFILE_URL" => "/auth/personal.php",
+            "SHOW_ERRORS" => "Y"
+        ),
+        false
+    );?>
+<?
+}
 ?>
-
-<?php 
-LocalRedirect ("/personal_section/index.php?SECTION=private");
-?>
-<p>Вы зарегистрированы и успешно авторизовались.</p>
- 
-<p><a href="<?=SITE_DIR?>">Вернуться на главную страницу</a></p>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

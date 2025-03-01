@@ -26,7 +26,7 @@ $APPLICATION->SetTitle("О компании");
     </h1>
   </div>
   <div class="page-banner-map desktop">
-    <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
+    <img src="/local/templates/mk-27-new/assets/images/banner-map.png">
   </div>
   <div class="page-banner-mobile mobile">
     <div class="page-banner-list">
@@ -40,7 +40,7 @@ $APPLICATION->SetTitle("О компании");
 );?>
     </div>
     <div class="page-banner-map">
-      <img src="/local/templates/mk-27.ru/assets/images/banner-map.png">
+      <img src="/local/templates/mk-27-new/assets/images/banner-map.png">
     </div>
   </div>
 </div>

@@ -8,8 +8,8 @@ $APPLICATION->SetTitle("Метиз Комплект | Строительное �
 /*
  * Где ещё указаны типы цен в коде
  * 
- * /public_html/local/templates/mk-27.ru/components/bitrix/catalog/main_catalog/section_vertical.php
- * /public_html/local/templates/mk-27.ru/components/bitrix/search.page/search_page/result_modifier.php
+ * /public_html/local/templates/mk-27-new/components/bitrix/catalog/main_catalog/section_vertical.php
+ * /public_html/local/templates/mk-27-new/components/bitrix/search.page/search_page/result_modifier.php
  * /public_html/catalog/index.php
  * /public_html/local/php_interface/init.php
  */
