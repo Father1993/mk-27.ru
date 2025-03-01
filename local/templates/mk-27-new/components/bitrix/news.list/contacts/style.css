@@ -1,0 +1,85 @@
+.contacts-item {
+    padding: 15px;
+    border-bottom: 1px #ccc solid;
+}
+.contacts-item:last-of-type {
+    border-bottom: none;
+}
+.contacts-item .title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.contacts-item .address {
+    padding-bottom: 10px;
+}
+.contacts-item .address:before {
+    content: url(/local/templates/mk-27.ru/assets/images/contacts-location.svg);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    display: inline-block;
+}
+.contacts-item .phone:before {
+    content: url(/local/templates/mk-27.ru/assets/images/contacts-phone.svg);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.contacts-item .v-line {
+    border-right: 1px #ccc solid;
+    margin: 0 10px 0 18px;
+}
+.contacts-item .v-line:last-of-type {
+    display: none;
+}
+
+.contacts-item .schedule {
+}
+.contacts-item .schedule img {
+    /*max-height: 18px;*/
+    margin-right: 3px;
+    padding: 1px;
+}
+
+.contacts-item .phones {
+    margin-top: 5px;
+}
+
+.contacts-item .phones .phone {
+    width: 160px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.contacts-item .email {
+    padding-top: 10px;
+}
+
+.contacts-item .email img {
+    max-width: 18px;
+    margin-right: 3px;
+    padding: 1px;
+}
+
+.contacts-item .text {
+    padding: 10px 0 0;
+}
+.scheduler-img img {
+    max-height: 18px;
+}
+.scheduler-img {
+    float: left;
+    margin-right: 3px;
+}
+
+@media (max-width: 576px) {
+    .contacts-item .v-line {
+        display: none;
+    }
+}

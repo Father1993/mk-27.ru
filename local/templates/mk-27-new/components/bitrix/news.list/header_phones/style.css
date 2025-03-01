@@ -1,0 +1,51 @@
+.phones-list {
+	
+}
+.phones-list .phones-dropdown {
+	
+}
+.phones-list .phones-dropdown:after {
+	content: url(/local/templates/mk-27.ru/assets/images/drop-arrow-white.svg);
+    margin-left: 4px;
+    margin-top: -2px;
+}
+.phones-list .phones-dropdown a {
+	color: #fff;
+    font-family: 'Akrobat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+}
+.phones-list .phones-dropdown .phones-dropdown-menu {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease-in-out;
+    background-color: #fff;
+    box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: -44px;
+    margin-left: -16px;
+    z-index: 2;
+}
+
+.phones-list .phones-dropdown:hover .phones-dropdown-menu {
+	opacity: 1;
+	pointer-events: all;
+}
+.phones-list .phones-dropdown .phones-dropdown-menu a {
+    display: block;
+    padding: 16px;
+    background-color: #fff;
+    white-space: nowrap;
+    color: #111;
+}
+.phones-list .phones-dropdown .phones-dropdown-menu a:hover {
+    background-color: rgba(238, 56, 49, 0.05);
+    color: #ee3831;
+}
+.phones-list .phones-dropdown .phones-dropdown-menu a:first-child:after {
+    content: url(/local/templates/mk-27.ru/assets/images/drop-arrow-red.svg);
+    margin-left: 9px;
+}

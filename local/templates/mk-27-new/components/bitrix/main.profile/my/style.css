@@ -1,0 +1,280 @@
+:root {
+    --primary-color: #ee3831;
+    --primary-hover: #d62d26;
+    --text-color: #2c3e50;
+    --muted-color: #7f8c8d;
+    --border-color: #e9ecef;
+    --bg-light: #f8f9fa;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile-block-hidden {
+    display: none;
+}
+
+.profile-block-shown {
+    display: block;
+}
+
+.profile-table {
+    width: 100%;
+}
+
+.profile-link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.profile-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+div.bx-auth-profile input.bx-auth-input {
+    vertical-align: middle;
+}
+div.bx-auth-profile span.bx-auth-secure {
+    background-color: #fffae3;
+    border: 1px solid #dedbc8;
+    padding: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+div.bx-auth-profile div.bx-auth-secure-icon {
+    background-image: url(images/sec.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 19px;
+    height: 18px;
+}
+div.bx-auth-profile div.bx-auth-secure-unlock {
+    background-image: url(images/sec-unlocked.png);
+}
+
+.profile-form-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.profile-form-wrapper .card {
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.profile-form-wrapper .card-body {
+    padding: 2.5rem;
+}
+
+.text-center.mb-4 {
+    background: var(--bg-light);
+    margin: -2.5rem -2.5rem 2rem;
+    padding: 2rem;
+    border-radius: 12px 12px 0 0;
+}
+
+.text-center.mb-4 h4 {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.text-center.mb-4 p.text-muted {
+    color: var(--muted-color) !important;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(238, 56, 49, 0.1);
+}
+
+.input-group-text {
+    background: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    padding: 0.75rem 1rem;
+    color: var(--muted-color);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(238, 56, 49, 0.2);
+}
+
+h5 {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+}
+
+.border-bottom {
+    border-color: var(--border-color) !important;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.text-muted {
+    color: var(--muted-color) !important;
+    font-size: 0.875rem;
+}
+
+.text-danger {
+    color: var(--primary-color) !important;
+}
+
+/* Маски для полей ввода */
+.phone-mask,
+.inn-mask,
+.kpp-mask,
+.ogrn-mask {
+    font-family: monospace;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .profile-form-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .profile-form-wrapper .card-body {
+        padding: 1.5rem;
+    }
+
+    .text-center.mb-4 {
+        margin: -1.5rem -1.5rem 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    [class*='col-'] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h5 {
+        font-size: 1.125rem;
+        margin: 1.5rem 0 1rem;
+    }
+}
+
+/* Улучшения для визуальной иерархии */
+.row > [class*='col-'] {
+    margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для сообщений */
+.errortext,
+.notetext {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+}
+
+.errortext {
+    background: #fff5f5;
+    color: #c0392b;
+}
+
+.notetext {
+    background: #f0fff4;
+    color: #38a169;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background: #4a90e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-circle .initials {
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.profile-form-wrapper .alert {
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+.profile-form-wrapper .alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.profile-form-wrapper .alert-danger {
+    background-color: #fdecea;
+    color: #d32f2f;
+}

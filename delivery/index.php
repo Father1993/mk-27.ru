@@ -7,42 +7,41 @@ $APPLICATION->SetAdditionalCSS ("/delivery/delivery.css");
 
 <div class="page-banner">
 
-	<div class="page-banner-list desktop"></div>
-	
-	<div class="page-banner-text">
-    	<h1>
-    		<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
+  <div class="page-banner-list desktop"></div>
+
+  <div class="page-banner-text">
+    <h1>
+      <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
         		"PATH" => SITE_TEMPLATE_PATH . "/include/delivery/banner_text.php"
         	));?>
-    	</h1>
-	</div>
-	
-	<div class="page-banner-map desktop"></div>
-	
+    </h1>
+  </div>
+
+
 </div>
 
 <div class="page-main-block container delivery no-padding-container">
 
-	<section>
-		<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
+  <section>
+    <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
     		"PATH" => SITE_TEMPLATE_PATH . "/include/delivery/main_block_text.php"
     	));?>
-	</section>
-	
-	<section>
-		<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
+  </section>
+
+  <section>
+    <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array("AREA_FILE_SHOW" => "file",
     		"PATH" => SITE_TEMPLATE_PATH . "/include/delivery/image.php"
     	));?>
-	</section>
+  </section>
 
-	<?php 
+  <?php 
 	global $arrFilterMiniGallery;
 	$arrFilterMiniGallery = array(
 	    "PROPERTY_CITY_VALUE" => $city_name
 	);
 	?>
 
-    <?$APPLICATION->IncludeComponent(
+  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"mini_gallery", 
 	array(

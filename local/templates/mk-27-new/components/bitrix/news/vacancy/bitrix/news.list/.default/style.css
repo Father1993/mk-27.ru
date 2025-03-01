@@ -1,0 +1,78 @@
+.vacancy .city-list-title {
+	font-size: 24px;
+	color: #333;
+	padding: 15px 0;
+}
+
+.vacancy .category {
+	max-width: 991px;
+}
+
+
+
+/* category-name-block */
+
+.vacancy .category .category-name-block {
+	display: inline-block;
+}
+
+.vacancy .category .category-name-block .name {
+	color: #EE3831;
+	text-decoration: underline;
+	-webkit-text-decoration-style: dashed;
+	text-decoration-style: dashed;
+	text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+	display: inline-block;
+	cursor: pointer;
+	transition: 0.15s;
+	margin-bottom: 5px;
+}
+.vacancy .category .category-name-block .name:hover {
+	color: #a71913;
+}
+.vacancy .category .category-name-block .count {
+	color: #999;
+	margin-left: 5px;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+/* category-list */ 
+
+.vacancy .category-list {
+	display: none;
+	margin-top: 15px;
+}
+.vacancy .category-list > .row {
+	padding-left: 15px;
+}
+
+.vacancy .category-list .name a {
+	color: #EE3831;
+	transition: 0.15s;
+	font-size: 18px; 
+}
+.vacancy .category-list .name a:hover {
+	color: #a71913;
+}
+.vacancy .category-list .salary span,
+.vacancy .category-list .city {
+	font-size: 14px;
+}
+.vacancy .category-list .date {
+	font-size: 14px;
+	color: #999;
+	border-bottom: 1px #eee solid;
+    margin: 5px 15px 15px;
+    padding: 0 0 15px;
+}
+
+@media (max-width: 576px) {
+	.vacancy .category .category-name-block .name {
+		display: inline;
+	}
+	.vacancy .category .category-name-block {
+		margin-bottom: 5px;
+	}
+}

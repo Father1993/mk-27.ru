@@ -1,0 +1,25 @@
+.bx-breadcrumb {
+	margin-top: 15px;
+}
+.bx-breadcrumb .bx-breadcrumb-item {
+	display: inline-block;
+}
+.bx-breadcrumb .bx-breadcrumb-item span {
+	font-size: 13px;
+	color: #999;
+}
+.bx-breadcrumb .bx-breadcrumb-item a > span {
+	font-size: 13px;
+	color: #666;
+	transition: 0.15s;
+}
+.bx-breadcrumb .bx-breadcrumb-item a:hover span {
+	color: #d43535;
+}
+.bx-breadcrumb .bx-breadcrumb-item a:active span {
+	color: #b92f2f;
+}
+.bx-breadcrumb .bx-breadcrumb-item i {
+	color: #aaa;
+	margin: 0 5px;
+}
