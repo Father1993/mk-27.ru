@@ -23,10 +23,16 @@ if ($request->isAjaxRequest())
     $application = Application::getInstance();
     $context = $application->getContext();
     
-    $cookie = new Cookie("city", $post["city"], time() + 60*60*24*60);
-    $cookie->setDomain($context->getServer()->getHttpHost());
+    $cookie = new Cookie("city", $post["city"], time() + 60*60*24*365);
+    // Правильно устанавливаем домен, убираем лишние порты и протоколы
+    $host = $context->getServer()->getHttpHost();
+    $host = preg_replace('/:\d+$/', '', $host); // Удаляем порт, если он есть
+    
+    $cookie->setDomain($host);
     $cookie->setHttpOnly(false);
-    $cookie->setSecure(false);
+    
+    // Устанавливаем Secure в true для HTTPS
+    $cookie->setSecure(true);
     
     $context->getResponse()->addCookie($cookie);
     $context->getResponse()->flush("");
