@@ -15,35 +15,22 @@ if ($city_code == "ysl") {
     $price_type = "Розничная Ф";
     $sort_price = "SCALED_PRICE_1";
 }
-$APPLICATION->SetTitle("Каталог товаров");
+
 ?>
 
 <div class="container no-padding-container catalog-container">
-  <?$APPLICATION->IncludeComponent(
-        "bitrix:breadcrumb",
-        "main_breadcrumb",
-        Array(
-            "PATH" => "",
-            "SITE_ID" => "s1",
-            "START_FROM" => "0"
-        )
-    );?>
-
-  <!-- Блок с заголовком и описанием каталога -->
-  <div class="catalog-header">
-    <div class="row">
-      <div class="col-md-8">
-        <h1 class="catalog-title"><?=$APPLICATION->ShowTitle(false)?></h1>
-        <?if($APPLICATION->GetProperty("catalog_description")):?>
-        <div class="catalog-description">
-          <?=$APPLICATION->GetProperty("catalog_description")?>
-        </div>
-        <?endif;?>
-      </div>
-    </div>
-  </div>
 
   <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"main_breadcrumb",
+	Array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0"
+	)
+);?>
+
+  <?$APPLICATION->IncludeComponent( // Не менять через админку.
 	"bitrix:catalog", 
 	"main_catalog", 
 	array(
@@ -176,10 +163,11 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"DISCOUNT_PERCENT_POSITION" => "bottom-right",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_FIELD2" => "name",
+	    //"ELEMENT_SORT_FIELD" => "$sort_price",
+	    "ELEMENT_SORT_FIELD" => "NAME",
+		"ELEMENT_SORT_FIELD2" => "id",
 		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_ORDER2" => "asc",
+		"ELEMENT_SORT_ORDER2" => "desc",
 		"FIELDS" => array(
 			0 => "SCHEDULE",
 			1 => "STORE",
@@ -240,7 +228,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 			5 => "",
 		),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "NEWPRODUCT",
 			1 => "SALELEADER",
@@ -252,7 +240,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"LIST_SHOW_SLIDER" => "Y",
 		"LIST_SLIDER_INTERVAL" => "3000",
 		"LIST_SLIDER_PROGRESS" => "N",
-		"LOAD_ON_SCROLL" => "Y",
+		"LOAD_ON_SCROLL" => "N",
 		"MAIN_TITLE" => "Наличие на складах",
 		"MESSAGE_404" => "",
 		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
@@ -265,89 +253,93 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
 		"MESS_PRICE_RANGES_TITLE" => "Цены",
 		"MESS_PROPERTIES_TAB" => "Характеристики",
+		"MIN_AMOUNT" => "10",
+		"OFFERS_CART_PROPERTIES" => array(
+			0 => "SIZES_SHOES",
+			1 => "SIZES_CLOTHES",
+			2 => "COLOR_REF",
+		),
+		"OFFERS_SORT_FIELD" => "sort",
+		"OFFERS_SORT_FIELD2" => "id",
+		"OFFERS_SORT_ORDER" => "desc",
+		"OFFERS_SORT_ORDER2" => "desc",
+		"OFFER_ADD_PICT_PROP" => "MORE_PHOTO",
+		"OFFER_TREE_PROPS" => array(
+			0 => "SIZES_SHOES",
+			1 => "SIZES_CLOTHES",
+			2 => "COLOR_REF",
+			3 => "",
+		),
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => "modern",
+		"PAGER_TEMPLATE" => "catalog_pagenavigation",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "16",
+		"PAGE_ELEMENT_COUNT" => "24",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRICE_CODE" => array(
-			0 => "Розничная Ф",
-			1 => "Сахалин ОПТ",
-			2 => "Сахалин РОЗНИЦА",
-		),
+	    "PRICE_CODE" => array(
+	        0 => "$price_type"
+	    ),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRICE_VAT_SHOW_VALUE" => "N",
 		"PRODUCT_DISPLAY_MODE" => "Y",
 		"PRODUCT_ID_VARIABLE" => "id",
+		"PRODUCT_PROPERTIES" => "",
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 		"PRODUCT_SUBSCRIPTION" => "Y",
+		"QUANTITY_FLOAT" => "N",
 		"SEARCH_CHECK_DATES" => "Y",
 		"SEARCH_NO_WORD_LOGIC" => "Y",
 		"SEARCH_PAGE_RESULT_COUNT" => "50",
 		"SEARCH_RESTART" => "N",
 		"SEARCH_USE_LANGUAGE_GUESS" => "Y",
-		"SEARCH_USE_SEARCH_RESULT_ORDER" => "N",
-		"SECTIONS_SHOW_PARENT_NAME" => "Y",
+		"SECTIONS_HIDE_SECTION_NAME" => "N",
+		"SECTIONS_SHOW_PARENT_NAME" => "N",
 		"SECTIONS_VIEW_MODE" => "TILE",
 		"SECTION_ADD_TO_BASKET_ACTION" => "ADD",
 		"SECTION_BACKGROUND_IMAGE" => "-",
-		"SECTION_COUNT_ELEMENTS" => "Y",
+		"SECTION_COUNT_ELEMENTS" => "N",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_TOP_DEPTH" => "2",
-		"SEF_MODE" => "N",
+		"SECTION_TOP_DEPTH" => "1",
+		"SEF_FOLDER" => "/",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
-		"SET_STATUS_404" => "N",
+		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "Y",
 		"SHOW_404" => "N",
 		"SHOW_DEACTIVATED" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "Y",
+		"SHOW_EMPTY_STORE" => "Y",
+		"SHOW_GENERAL_STORE_INFORMATION" => "N",
 		"SHOW_MAX_QUANTITY" => "N",
 		"SHOW_OLD_PRICE" => "Y",
 		"SHOW_PRICE_COUNT" => "1",
-		"SHOW_SKU_DESCRIPTION" => "N",
 		"SHOW_TOP_ELEMENTS" => "N",
+		"SIDEBAR_DETAIL_POSITION" => "right",
 		"SIDEBAR_DETAIL_SHOW" => "N",
-		"SIDEBAR_PATH" => "",
-		"SIDEBAR_SECTION_SHOW" => "Y",
-		"TEMPLATE_THEME" => "blue",
+		"SIDEBAR_PATH" => "/catalog/sidebar.php",
+		"SIDEBAR_SECTION_POSITION" => "right",
+		"SIDEBAR_SECTION_SHOW" => "N",
+		"STORES" => array(
+			0 => "1",
+			1 => "",
+		),
+		"STORE_PATH" => "/store/#store_id#",
+		"TEMPLATE_THEME" => "site",
 		"TOP_ADD_TO_BASKET_ACTION" => "ADD",
-		"TOP_ELEMENT_COUNT" => "9",
-		"TOP_ELEMENT_SORT_FIELD" => "sort",
-		"TOP_ELEMENT_SORT_FIELD2" => "name",
-		"TOP_ELEMENT_SORT_ORDER" => "asc",
-		"TOP_ELEMENT_SORT_ORDER2" => "asc",
-		"TOP_ENLARGE_PRODUCT" => "STRICT",
-		"TOP_LINE_ELEMENT_COUNT" => "3",
-		"TOP_OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"TOP_OFFERS_LIMIT" => "5",
-		"TOP_OFFERS_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"TOP_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-		"TOP_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"TOP_PROPERTY_CODE_MOBILE" => "",
-		"TOP_SHOW_SLIDER" => "Y",
-		"TOP_SLIDER_INTERVAL" => "3000",
-		"TOP_SLIDER_PROGRESS" => "N",
-		"TOP_VIEW_MODE" => "SECTION",
 		"USER_CONSENT" => "N",
 		"USER_CONSENT_ID" => "0",
 		"USER_CONSENT_IS_CHECKED" => "Y",
 		"USER_CONSENT_IS_LOADED" => "N",
-		"USE_BIG_DATA" => "Y",
+		"USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"USE_ALSO_BUY" => "Y",
+		"USE_BIG_DATA" => "N",
 		"USE_COMMON_SETTINGS_BASKET_POPUP" => "N",
 		"USE_COMPARE" => "Y",
 		"USE_ELEMENT_COUNTER" => "Y",
@@ -357,172 +349,42 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"USE_GIFTS_MAIN_PR_SECTION_LIST" => "Y",
 		"USE_GIFTS_SECTION" => "Y",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"USE_MIN_AMOUNT" => "N",
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "Y",
-		"USE_REVIEW" => "N",
 		"USE_SALE_BESTSELLERS" => "Y",
 		"USE_STORE" => "N",
-		"COMPONENT_TEMPLATE" => "store_v3",
-		"OFFER_ADD_PICT_PROP" => "-",
+		"COMPONENT_TEMPLATE" => "main_catalog",
+		"DETAIL_SHOW_MAX_QUANTITY" => "N",
+		"DETAIL_SHOW_BASIS_PRICE" => "Y",
 		"COMPARE_NAME" => "CATALOG_COMPARE_LIST",
 		"COMPARE_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"COMPARE_OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "NAME",
+			1 => "DETAIL_PICTURE",
+			2 => "",
 		),
 		"COMPARE_ELEMENT_SORT_FIELD" => "sort",
 		"COMPARE_ELEMENT_SORT_ORDER" => "asc",
 		"COMPARE_POSITION_FIXED" => "Y",
 		"COMPARE_POSITION" => "top left",
-		"SECTIONS_HIDE_SECTION_NAME" => "N",
-		"OFFERS_SORT_FIELD" => "sort",
-		"OFFERS_SORT_ORDER" => "asc",
-		"OFFERS_SORT_FIELD2" => "id",
-		"OFFERS_SORT_ORDER2" => "desc",
 		"MESS_BTN_LAZY_LOAD" => "Показать ещё",
-		"MESS_NOT_AVAILABLE_SERVICE" => "Недоступно",
-		"SIDEBAR_SECTION_POSITION" => "right",
-		"SIDEBAR_DETAIL_POSITION" => "right",
-		"VARIABLE_ALIASES" => array(
-			"ELEMENT_ID" => "ELEMENT_ID",
-			"SECTION_ID" => "SECTION_ID",
-		)
+		"COMPARE_OFFERS_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"SHOW_SKU_DESCRIPTION" => "N",
+		"SEF_URL_TEMPLATES" => array(
+			"sections" => "",
+			"section" => "#SECTION_CODE_PATH#/",
+			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+			"compare" => "compare/",
+			"smart_filter" => "/#SECTION_CODE#/filter/#SMART_FILTER_PATH#/apply/",
+		),
+	    "CITY_CODE" => "$city_code",
 	),
 	false
 );?>
+
 </div>
 
-<!-- Преимущества магазина -->
-<div class="catalog-advantages">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <div class="advantage-item">
-          <div class="advantage-icon">
-            <i class="bi bi-truck"></i>
-          </div>
-          <div class="advantage-title">Быстрая доставка</div>
-          <div class="advantage-text">Доставка по всей России</div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="advantage-item">
-          <div class="advantage-icon">
-            <i class="bi bi-shield-check"></i>
-          </div>
-          <div class="advantage-title">Гарантия качества</div>
-          <div class="advantage-text">Только сертифицированные товары</div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="advantage-item">
-          <div class="advantage-icon">
-            <i class="bi bi-cash-coin"></i>
-          </div>
-          <div class="advantage-title">Система скидок</div>
-          <div class="advantage-text">Накопительные скидки для клиентов</div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="advantage-item">
-          <div class="advantage-icon">
-            <i class="bi bi-headset"></i>
-          </div>
-          <div class="advantage-title">Поддержка 24/7</div>
-          <div class="advantage-text">Квалифицированные консультанты</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Стили для оформления каталога -->
-<style>
-/* Общие стили каталога */
-.catalog-container {
-  margin-bottom: 40px;
-}
-
-/* Стили для заголовка и описания */
-.catalog-header {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.catalog-title {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #333;
-  font-weight: 700;
-}
-
-.catalog-description {
-  color: #666;
-  line-height: 1.6;
-}
-
-.catalog-search-form {
-  margin-top: 20px;
-}
-
-/* Стили для блока преимуществ */
-.catalog-advantages {
-  padding: 40px 0;
-  background-color: #f8f8f8;
-  margin-top: 30px;
-}
-
-.advantage-item {
-  text-align: center;
-  padding: 20px 15px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.advantage-item:hover {
-  transform: translateY(-5px);
-}
-
-.advantage-icon {
-  font-size: 36px;
-  color: #ee3831;
-  margin-bottom: 15px;
-}
-
-.advantage-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.advantage-text {
-  color: #666;
-  font-size: 14px;
-}
-
-/* Стили для мобильных устройств */
-@media (max-width: 768px) {
-  .catalog-title {
-    font-size: 24px;
-  }
-
-  .advantage-item {
-    padding: 15px 10px;
-  }
-
-  .advantage-icon {
-    font-size: 28px;
-  }
-
-  .advantage-title {
-    font-size: 16px;
-  }
-}
-</style>
-
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
