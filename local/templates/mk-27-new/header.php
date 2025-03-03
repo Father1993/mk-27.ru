@@ -375,7 +375,7 @@ $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
 
         </div>
 
-        <div class="header-social">
+        <div class="header-social desktop">
           <a href="https://wa.me/79145443019" target="_blank"><img
               src="<?=SITE_TEMPLATE_PATH?>/assets/images/ic-wa.svg"></a>
           <a href="https://t.me/metiz_komplekt27" target="_blank"><img
@@ -417,7 +417,6 @@ $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
           ),
           false
         );?>
-        <?php ?>
         <div class="header-profile">
           <?php global $USER; if ($USER->IsAuthorized()): ?>
           <a href="/personal_section/index.php?SECTION=private">
@@ -429,14 +428,8 @@ $priceTypeYsl = $arPriceTypeItem["PROPERTY_PRICE_TYPE_VALUE"];
             <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/profile.png">
             <div>Вход</div>
           </a>
-          <div class="enter-or">ИЛИ</div>
-          <a class="log-reg-link head-reg-link" href="/personal_section/registration.php?type=legal">
-            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/registration.png">
-            <div>Регистрация</div>
-          </a>
           <?php endif; ?>
         </div>
-        <?php ?>
 
       </div>
 
