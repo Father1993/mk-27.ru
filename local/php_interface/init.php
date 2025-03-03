@@ -13,9 +13,6 @@ includeFile("/local/vendor/autoload.php");
 /** Функции */
 includeFile("/local/php_interface/include/functions.php");
 
-COption::SetOptionString("catalog", "DEFAULT_SKIP_SOURCE_CHECK", "Y");
-COption::SetOptionString("sale", "secure_1c_exchange", "N");
-
 use Bitrix\Sale;
 use Bitrix\Main;
 

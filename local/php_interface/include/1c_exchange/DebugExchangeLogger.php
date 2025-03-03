@@ -11,6 +11,7 @@ class DebugExchangeLogger
 {
     private $logDir;
     private $currentFile;
+    private $detailedLogFile; // Единый файл для детального лога
     private $startTime;
     private $enabled = true;
     private $requestLog = [];
@@ -29,7 +30,13 @@ class DebugExchangeLogger
     {
         $this->requestID = $requestID ?: substr(md5(microtime(true)), 0, 8);
         $this->logDir = $_SERVER['DOCUMENT_ROOT'] . '/upload/1c_exchange_logs';
+        
+        // Используем единый файл для детального лога вместо отдельных файлов
+        $this->detailedLogFile = $this->logDir . '/1c_exchange_detailed.log';
+        
+        // Для совместимости сохраняем имя текущего файла (но не создаем его)
         $this->currentFile = $this->logDir . '/1c_exchange_debug_' . $this->requestID . '.log';
+        
         $this->startTime = microtime(true);
         
         // Создаем директорию для логов, если она не существует
@@ -37,9 +44,17 @@ class DebugExchangeLogger
             mkdir($this->logDir, 0775, true);
         }
         
-        // Создаем файл лога для текущего запроса
-        file_put_contents($this->currentFile, '');
-        chmod($this->currentFile, 0664);
+        // Создаем файл детального лога, если он не существует
+        if (!file_exists($this->detailedLogFile)) {
+            file_put_contents($this->detailedLogFile, '');
+            chmod($this->detailedLogFile, 0664);
+        }
+        
+        // Добавляем разделитель для нового запроса
+        $separator = "\n" . str_repeat('=', 80) . "\n";
+        $separator .= "НОВЫЙ ЗАПРОС: " . $this->requestID . " - " . date('Y-m-d H:i:s') . "\n";
+        $separator .= str_repeat('=', 80) . "\n\n";
+        file_put_contents($this->detailedLogFile, $separator, FILE_APPEND);
         
         // Логируем начальную информацию
         $this->log('Старт логирования запроса', [
@@ -132,6 +147,14 @@ class DebugExchangeLogger
         
         // Добавляем запись в основной лог обмена
         $this->addToMainLog($requestID, $executionTime, $errorsCount);
+        
+        // Добавляем разделитель в конце запроса
+        $separator = "\n" . str_repeat('-', 80) . "\n";
+        $separator .= "КОНЕЦ ЗАПРОСА: " . $this->requestID . " - " . date('Y-m-d H:i:s');
+        $separator .= " - Время выполнения: " . round($executionTime, 4) . " сек.";
+        $separator .= " - Ошибок: " . $errorsCount;
+        $separator .= "\n" . str_repeat('-', 80) . "\n\n";
+        file_put_contents($this->detailedLogFile, $separator, FILE_APPEND);
     }
     
     /**
@@ -150,7 +173,10 @@ class DebugExchangeLogger
             'execution_time' => round($executionTime, 4),
             'memory_usage' => $this->formatBytes(memory_get_peak_usage(true)),
             'errors' => $errorsCount,
-            'file' => basename($this->currentFile)
+            'type' => isset($_GET['type']) ? $_GET['type'] : '',
+            'mode' => isset($_GET['mode']) ? $_GET['mode'] : '',
+            'filename' => isset($_GET['filename']) ? $_GET['filename'] : '',
+            'uri' => $_SERVER['REQUEST_URI']
         ];
         
         $logLine = json_encode($logEntry, JSON_UNESCAPED_UNICODE) . "\n";
@@ -189,7 +215,8 @@ class DebugExchangeLogger
             'level' => $level,
             'message' => $message,
             'data' => $data,
-            'memory' => $this->getMemoryUsage()
+            'memory' => $this->getMemoryUsage(),
+            'request_id' => $this->requestID
         ];
         
         // Добавляем запись в массив для статистики
@@ -197,10 +224,11 @@ class DebugExchangeLogger
         
         // Форматируем запись для файла
         $logLine = sprintf(
-            "[%s] [%s] [%s] %s\n",
+            "[%s] [%s] [%s] [%s] %s\n",
             $entry['date'],
             $level,
             $entry['memory'],
+            $this->requestID,
             $message
         );
         
@@ -212,8 +240,8 @@ class DebugExchangeLogger
             $logLine .= "\n";
         }
         
-        // Записываем в файл
-        file_put_contents($this->currentFile, $logLine, FILE_APPEND);
+        // Записываем в единый файл детального лога
+        file_put_contents($this->detailedLogFile, $logLine, FILE_APPEND);
     }
     
     /**
@@ -365,7 +393,8 @@ class DebugExchangeLogger
      */
     public function getLogFilePath()
     {
-        return $this->currentFile;
+        // Для совместимости возвращаем путь к детальному логу
+        return $this->detailedLogFile;
     }
     
     /**
