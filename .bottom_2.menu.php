@@ -29,7 +29,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Сертификаты соответствия", 
+		"Сертификаты дилерства", 
 		"/certificates/", 
 		Array(), 
 		Array(), 
