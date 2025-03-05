@@ -36,24 +36,27 @@ if ($city_code == "ysl") $active_ysl = "active";
   $hasActiveHolidayYsl = false;
   
   $rsHoliday = CIBlockElement::GetList(
-      array("SORT" => "ASC"),
-      array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
-      false,
-      false,
-      array("ID")
-  );
-  
-  while($arHoliday = $rsHoliday->GetNext()) {
-      if ($arHoliday["ID"] == 1095269) {
-          $hasActiveHolidayKhb = true;
-      }
-      if ($arHoliday["ID"] == 1095270) {
-          $hasActiveHolidayVld = true;
-      }
-      if ($arHoliday["ID"] == 1095271) {
-          $hasActiveHolidayYsl = true;
-      }
-  }
+		array("SORT" => "ASC"),
+		array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
+		false,
+		false,
+		array("ID", "NAME", "PROPERTY_KOD_GORODA")
+);
+
+while($arHoliday = $rsHoliday->GetNext()) {
+		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "khb") {
+				$hasActiveHolidayKhb = true;
+				$holidayKhbID = $arHoliday["ID"];
+		}
+		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "vld") {
+				$hasActiveHolidayVld = true;
+				$holidayVldID = $arHoliday["ID"];
+		}
+		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "ysl") {
+				$hasActiveHolidayYsl = true;
+				$holidayYslID = $arHoliday["ID"];
+		}
+}
   
   // Проверяем наличие активного элемента для Хабаровска
   if ($hasActiveHolidayKhb):
@@ -63,7 +66,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1095269,
+					"ID" => $holidayKhbID,
           "ACTIVE" => "Y"
       );
     ?>
@@ -145,7 +148,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1095270,
+					"ID" => $holidayVldID,
           "ACTIVE" => "Y"
       );
     ?>
@@ -227,7 +230,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1095271,
+					"ID" => $holidayYslID,
           "ACTIVE" => "Y"
       );
     ?>
