@@ -1,0 +1,195 @@
+2025-03-05 09:23:49 - Обновление пользователя:
+Array
+(
+    [TITLE] => 
+    [NAME] => Обмен с 1С
+    [LAST_NAME] => 
+    [SECOND_NAME] => 
+    [EMAIL] => example@example.com
+    [LOGIN] => exchange
+    [PERSONAL_PROFESSION] => 
+    [PERSONAL_WWW] => 
+    [PERSONAL_ICQ] => 
+    [PERSONAL_GENDER] => 
+    [PERSONAL_BIRTHDAY] => 
+    [PERSONAL_PHONE] => 
+    [PERSONAL_FAX] => 
+    [PERSONAL_MOBILE] => 
+    [PERSONAL_PAGER] => 
+    [PERSONAL_STREET] => 
+    [PERSONAL_MAILBOX] => 
+    [PERSONAL_CITY] => 
+    [PERSONAL_STATE] => 
+    [PERSONAL_ZIP] => 
+    [PERSONAL_COUNTRY] => 0
+    [PERSONAL_NOTES] => 
+    [WORK_COMPANY] => 
+    [WORK_DEPARTMENT] => 
+    [WORK_POSITION] => 
+    [WORK_WWW] => 
+    [WORK_PHONE] => 
+    [WORK_FAX] => 
+    [WORK_PAGER] => 
+    [WORK_STREET] => 
+    [WORK_MAILBOX] => 
+    [WORK_CITY] => 
+    [WORK_STATE] => 
+    [WORK_ZIP] => 
+    [WORK_COUNTRY] => 0
+    [WORK_PROFILE] => 
+    [WORK_NOTES] => 
+    [AUTO_TIME_ZONE] => 
+    [XML_ID] => 
+    [PHONE_NUMBER] => 
+    [PASSWORD_EXPIRED] => N
+    [LID] => s1
+    [LANGUAGE_ID] => ru
+    [ACTIVE] => Y
+    [BLOCKED] => N
+    [GROUP_ID] => Array
+        (
+            [0] => Array
+                (
+                    [GROUP_ID] => 1
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+            [1] => Array
+                (
+                    [GROUP_ID] => 5
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+            [2] => Array
+                (
+                    [GROUP_ID] => 13
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+            [3] => Array
+                (
+                    [GROUP_ID] => 6
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+        )
+
+    [ADMIN_NOTES] => 
+    [PASSWORD] => $6$y0xJKNLNFB0XXRH1$AbZ1pHIdh/gZisZVswNYZBT5D6QmMAwBVrR6IA5a592ctqucZzITuCftczC5cuj9AyBRlv2qJWq97osumTa90/
+    [CONFIRM_PASSWORD] => pnd1350wj
+    [UF_ISURFACE] => 0
+    [UF_ORGNAME] => 
+    [UF_ORGINN] => 
+    [UF_FIO] => 
+    [UF_POST_ADDRESS] => 
+    [UF_REALADDRESS] => 
+    [UF_URADDRESS] => 
+    [UF_HEAD_PHONE] => 
+    [UF_KPPORG] => 
+    [UF_CONTACT_PERSON] => 
+    [UF_DELIVERY_ADDR] => 
+    [CHECKWORD] => h6r8jo5vv2jdsl3g4jgqn0vufeq18dx4
+    [~CHECKWORD_TIME] => now()
+    [ID] => 2
+    [RESULT] => 1
+)
+
+-------------------
+2025-03-05 09:37:11 - Обновление пользователя:
+Array
+(
+    [TITLE] => 
+    [NAME] => Обмен с 1С
+    [LAST_NAME] => 
+    [SECOND_NAME] => 
+    [EMAIL] => example@example.com
+    [LOGIN] => exchange
+    [PERSONAL_PROFESSION] => 
+    [PERSONAL_WWW] => 
+    [PERSONAL_ICQ] => 
+    [PERSONAL_GENDER] => 
+    [PERSONAL_BIRTHDAY] => 
+    [PERSONAL_PHONE] => 
+    [PERSONAL_FAX] => 
+    [PERSONAL_MOBILE] => 
+    [PERSONAL_PAGER] => 
+    [PERSONAL_STREET] => 
+    [PERSONAL_MAILBOX] => 
+    [PERSONAL_CITY] => 
+    [PERSONAL_STATE] => 
+    [PERSONAL_ZIP] => 
+    [PERSONAL_COUNTRY] => 0
+    [PERSONAL_NOTES] => 
+    [WORK_COMPANY] => 
+    [WORK_DEPARTMENT] => 
+    [WORK_POSITION] => 
+    [WORK_WWW] => 
+    [WORK_PHONE] => 
+    [WORK_FAX] => 
+    [WORK_PAGER] => 
+    [WORK_STREET] => 
+    [WORK_MAILBOX] => 
+    [WORK_CITY] => 
+    [WORK_STATE] => 
+    [WORK_ZIP] => 
+    [WORK_COUNTRY] => 0
+    [WORK_PROFILE] => 
+    [WORK_NOTES] => 
+    [AUTO_TIME_ZONE] => 
+    [XML_ID] => 
+    [PHONE_NUMBER] => 
+    [PASSWORD_EXPIRED] => N
+    [LID] => s1
+    [LANGUAGE_ID] => ru
+    [ACTIVE] => Y
+    [BLOCKED] => N
+    [GROUP_ID] => Array
+        (
+            [0] => Array
+                (
+                    [GROUP_ID] => 1
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+            [1] => Array
+                (
+                    [GROUP_ID] => 5
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+            [2] => Array
+                (
+                    [GROUP_ID] => 6
+                    [DATE_ACTIVE_FROM] => 
+                    [DATE_ACTIVE_TO] => 
+                )
+
+        )
+
+    [ADMIN_NOTES] => 
+    [PASSWORD] => $6$8nAWyDunwZwwCk2Q$ybfGd57r7gz.9ecrSD/ajLCiu8qhGotDM9ihyGmKMNiyyFbaBZEdePTgA8egPyg1ciW5Hp37NhBmVALvI7pIz0
+    [CONFIRM_PASSWORD] => pnd1350wj
+    [UF_ISURFACE] => 0
+    [UF_ORGNAME] => 
+    [UF_ORGINN] => 
+    [UF_FIO] => 
+    [UF_POST_ADDRESS] => 
+    [UF_REALADDRESS] => 
+    [UF_URADDRESS] => 
+    [UF_HEAD_PHONE] => 
+    [UF_KPPORG] => 
+    [UF_CONTACT_PERSON] => 
+    [UF_DELIVERY_ADDR] => 
+    [CHECKWORD] => cf5xhficrq71p6fe938kzpneby2s4zn5
+    [~CHECKWORD_TIME] => now()
+    [ID] => 2
+    [RESULT] => 1
+)
+
+-------------------
