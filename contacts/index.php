@@ -37,20 +37,20 @@ if ($city_code == "ysl") $active_ysl = "active";
   
   $rsHoliday = CIBlockElement::GetList(
       array("SORT" => "ASC"),
-      array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
+      array("IBLOCK_ID" => 668, "ACTIVE" => "Y"),
       false,
       false,
       array("ID")
   );
   
   while($arHoliday = $rsHoliday->GetNext()) {
-      if ($arHoliday["ID"] == 1197415) {
+      if ($arHoliday["ID"] == 1095269) {
           $hasActiveHolidayKhb = true;
       }
-      if ($arHoliday["ID"] == 1197416) {
+      if ($arHoliday["ID"] == 1095270) {
           $hasActiveHolidayVld = true;
       }
-      if ($arHoliday["ID"] == 1197417) {
+      if ($arHoliday["ID"] == 1095271) {
           $hasActiveHolidayYsl = true;
       }
   }
@@ -63,7 +63,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1157259,
+          "ID" => 1095269,
           "ACTIVE" => "Y"
       );
     ?>
@@ -97,7 +97,7 @@ if ($city_code == "ysl") $active_ysl = "active";
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "670", // ID инфоблока "Режимы работы"
+        "IBLOCK_ID" => "668",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
@@ -145,7 +145,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1157260,
+          "ID" => 1095270,
           "ACTIVE" => "Y"
       );
     ?>
@@ -179,7 +179,7 @@ if ($city_code == "ysl") $active_ysl = "active";
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "670", // ID инфоблока "Режимы работы"
+        "IBLOCK_ID" => "668",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
@@ -227,7 +227,7 @@ if ($city_code == "ysl") $active_ysl = "active";
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-          "ID" => 1157261,
+          "ID" => 1095271,
           "ACTIVE" => "Y"
       );
     ?>
@@ -261,7 +261,7 @@ if ($city_code == "ysl") $active_ysl = "active";
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "670", // ID инфоблока "Режимы работы"
+        "IBLOCK_ID" => "668",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
