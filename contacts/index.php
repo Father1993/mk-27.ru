@@ -36,27 +36,24 @@ if ($city_code == "ysl") $active_ysl = "active";
   $hasActiveHolidayYsl = false;
   
   $rsHoliday = CIBlockElement::GetList(
-		array("SORT" => "ASC"),
-		array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
-		false,
-		false,
-		array("ID", "NAME", "PROPERTY_KOD_GORODA")
-);
-
-while($arHoliday = $rsHoliday->GetNext()) {
-		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "khb") {
-				$hasActiveHolidayKhb = true;
-				$holidayKhbID = $arHoliday["ID"];
-		}
-		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "vld") {
-				$hasActiveHolidayVld = true;
-				$holidayVldID = $arHoliday["ID"];
-		}
-		if ($arHoliday["PROPERTY_KOD_GORODA_VALUE"] == "ysl") {
-				$hasActiveHolidayYsl = true;
-				$holidayYslID = $arHoliday["ID"];
-		}
-}
+      array("SORT" => "ASC"),
+      array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
+      false,
+      false,
+      array("ID")
+  );
+  
+  while($arHoliday = $rsHoliday->GetNext()) {
+      if ($arHoliday["ID"] == 1197415) {
+          $hasActiveHolidayKhb = true;
+      }
+      if ($arHoliday["ID"] == 1197416) {
+          $hasActiveHolidayVld = true;
+      }
+      if ($arHoliday["ID"] == 1197417) {
+          $hasActiveHolidayYsl = true;
+      }
+  }
   
   // Проверяем наличие активного элемента для Хабаровска
   if ($hasActiveHolidayKhb):
@@ -66,7 +63,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-					"ID" => $holidayKhbID,
+          "ID" => 1197415,
           "ACTIVE" => "Y"
       );
     ?>
@@ -100,7 +97,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "668",
+        "IBLOCK_ID" => "670",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
@@ -148,7 +145,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-					"ID" => $holidayVldID,
+          "ID" => 1197416,
           "ACTIVE" => "Y"
       );
     ?>
@@ -182,7 +179,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "668",
+        "IBLOCK_ID" => "670",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
@@ -230,7 +227,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
     <?php 
       global $arrFilterHoliday;
       $arrFilterHoliday = array(
-					"ID" => $holidayYslID,
+          "ID" => 1197417,
           "ACTIVE" => "Y"
       );
     ?>
@@ -264,7 +261,7 @@ while($arHoliday = $rsHoliday->GetNext()) {
         ),
         "FILTER_NAME" => "arrFilterHoliday",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "668",
+        "IBLOCK_ID" => "670",
         "IBLOCK_TYPE" => "info",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
