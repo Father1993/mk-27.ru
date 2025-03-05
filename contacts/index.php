@@ -44,13 +44,13 @@ if ($city_code == "ysl") $active_ysl = "active";
   );
   
   while($arHoliday = $rsHoliday->GetNext()) {
-      if ($arHoliday["ID"] == 1157259) {
+      if ($arHoliday["ID"] == 1197415) {
           $hasActiveHolidayKhb = true;
       }
-      if ($arHoliday["ID"] == 1157260) {
+      if ($arHoliday["ID"] == 1197416) {
           $hasActiveHolidayVld = true;
       }
-      if ($arHoliday["ID"] == 1157261) {
+      if ($arHoliday["ID"] == 1197417) {
           $hasActiveHolidayYsl = true;
       }
   }
