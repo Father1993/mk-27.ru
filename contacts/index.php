@@ -37,7 +37,7 @@ if ($city_code == "ysl") $active_ysl = "active";
   
   $rsHoliday = CIBlockElement::GetList(
       array("SORT" => "ASC"),
-      array("IBLOCK_ID" => 668, "ACTIVE" => "Y"),
+      array("IBLOCK_ID" => 670, "ACTIVE" => "Y"),
       false,
       false,
       array("ID")
