@@ -6,6 +6,7 @@
 **/.bash_history
 **/node_modules/
 **/vendor/
+/python/venv/*
 
 # Игнорировать содержимое /bitrix/, но с исключениями
 /bitrix/*
