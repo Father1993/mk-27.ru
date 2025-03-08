@@ -28,9 +28,6 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         list($width_before, $height_before) = getimagesize($filepath);
         echo "<p>Размеры до обработки: {$width_before}x{$height_before}</p>";
         
-        // Выбранный масштаб
-        $scale = $_POST['scale'];
-        
         // Определяем минимальное разрешение для выбора масштаба (как в recalculation_menu.php)
         $min_resolution = min([$width_before, $height_before]);
         
@@ -46,11 +43,17 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         echo "<p>Автоматически определенный масштаб: {$auto_scale}x</p>";
         
         // Используем выбранный пользователем масштаб для тестирования
-        $scale_to_use = $scale;
+        $scale_to_use = $_POST['scale'];
         echo "<p>Используемый масштаб для теста: {$scale_to_use}x</p>";
         
         // Запускаем Python-скрипт для обработки изображения точно так же, как в recalculation_menu.php
         $path = $filepath; // В recalculation_menu.php используется переменная $path
+        
+        // Сохраняем текущую директорию
+        $current_dir = getcwd();
+        
+        // Переходим в корневую директорию сайта
+        chdir($_SERVER["DOCUMENT_ROOT"]);
         
         // Формируем команду точно так же, как в recalculation_menu.php
         $command = "python/venv/bin/python3 python/resize.py '$path' '$scale_to_use'";
@@ -61,17 +64,18 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $output = [];
         $return_var = 0;
         
-        // Используем system() как в recalculation_menu.php
-        ob_start();
-        system($command, $return_var);
-        $system_output = ob_get_clean();
+        // Используем exec для получения вывода и кода возврата
+        exec($command, $output, $return_var);
+        
+        // Возвращаемся в исходную директорию
+        chdir($current_dir);
         
         if($return_var === 0) {
-            echo "<p>Изображение успешно обработано.</p>";
+            echo "<p style='color: green; font-weight: bold;'>Изображение успешно обработано.</p>";
             
-            if (!empty($system_output)) {
-                echo "<p>Вывод команды system():</p>";
-                echo "<pre>$system_output</pre>";
+            if (!empty($output)) {
+                echo "<p>Вывод команды:</p>";
+                echo "<pre>" . implode("\n", $output) . "</pre>";
             }
             
             // Получаем размеры изображения после обработки
@@ -99,9 +103,9 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         } else {
             echo "<p style='color: red; font-weight: bold;'>Ошибка при обработке изображения. Код возврата: $return_var</p>";
             
-            if (!empty($system_output)) {
-                echo "<p>Вывод команды system():</p>";
-                echo "<pre>$system_output</pre>";
+            if (!empty($output)) {
+                echo "<p>Вывод команды:</p>";
+                echo "<pre>" . implode("\n", $output) . "</pre>";
             }
             
             // Проверяем наличие лог-файла
@@ -115,27 +119,35 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
             echo "<p>Проверка прав доступа:</p>";
             echo "<pre>";
             echo "Права на файл изображения: " . substr(sprintf('%o', fileperms($filepath)), -4) . "\n";
-            echo "Владелец файла изображения: " . posix_getpwuid(fileowner($filepath))['name'] . "\n";
+            echo "ID владельца файла изображения: " . fileowner($filepath) . "\n";
             echo "Права на директорию python: " . substr(sprintf('%o', fileperms($_SERVER["DOCUMENT_ROOT"] . "/python")), -4) . "\n";
             echo "Права на скрипт resize.py: " . substr(sprintf('%o', fileperms($_SERVER["DOCUMENT_ROOT"] . "/python/resize.py")), -4) . "\n";
             echo "Права на директорию model: " . substr(sprintf('%o', fileperms($_SERVER["DOCUMENT_ROOT"] . "/python/model")), -4) . "\n";
-            echo "</pre>";
             
-            // Проверяем наличие и доступность Python
-            echo "<p>Проверка Python:</p>";
-            echo "<pre>";
-            system("which python3", $python_exists);
-            if ($python_exists === 0) {
-                system("python3 --version");
+            // Проверяем наличие моделей
+            echo "\nПроверка наличия моделей:\n";
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/model/FSRCNN_x2.pb")) {
+                echo "Модель FSRCNN_x2.pb найдена\n";
             } else {
-                echo "Python3 не найден\n";
+                echo "Модель FSRCNN_x2.pb НЕ найдена\n";
             }
             
-            // Проверяем виртуальное окружение
-            if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/venv/bin/python3")) {
-                echo "Виртуальное окружение найдено\n";
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/model/FSRCNN_x3.pb")) {
+                echo "Модель FSRCNN_x3.pb найдена\n";
             } else {
-                echo "Виртуальное окружение не найдено\n";
+                echo "Модель FSRCNN_x3.pb НЕ найдена\n";
+            }
+            
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/model/FSRCNN_x4.pb")) {
+                echo "Модель FSRCNN_x4.pb найдена\n";
+            } else {
+                echo "Модель FSRCNN_x4.pb НЕ найдена\n";
+            }
+            
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/model/LapSRN_x8.pb")) {
+                echo "Модель LapSRN_x8.pb найдена\n";
+            } else {
+                echo "Модель LapSRN_x8.pb НЕ найдена\n";
             }
             echo "</pre>";
         }
@@ -192,6 +204,11 @@ if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/python/venv/bin/python3")) {
 } else {
     echo "Виртуальное окружение не найдено\n";
 }
+
+// Проверяем текущий скрипт resize.py
+echo "\nСодержимое скрипта resize.py:\n";
+$resize_script = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/python/resize.py");
+echo htmlspecialchars($resize_script);
 ?>
   </pre>
 </div>
