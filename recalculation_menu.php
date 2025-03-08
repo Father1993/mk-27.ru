@@ -224,52 +224,78 @@ foreach ($arItems as $key => $val) {
             $back = imagecolorallocate($im, 255, 255, 255);
             imagefilledrectangle($im, 0, 0, $width, $height, $back);
             
-            if (exif_imagetype($path) == 1)  $src = imageCreateFromGif($path);
-            if (exif_imagetype($path) == 2)  $src = imageCreateFromJpeg($path);
-            if (exif_imagetype($path) == 3)  $src = imageCreateFromPng($path);
-            if (exif_imagetype($path) == 18) $src = imageCreateFromWebp($path);
+            // Инициализируем $src как null
+            $src = null;
             
-            list($width_orig, $height_orig) = getimagesize($path);
-            
-            // Проверка на деление на ноль
-            if ($height_orig == 0) {
-                // Если высота равна 0, устанавливаем соотношение 1:1 (квадрат)
-                $ratio_orig = 1;
-            } else {
-                $ratio_orig = $width_orig / $height_orig;
-            }
-            
-            // Проверка на деление на ноль при сравнении соотношений
-            if ($height == 0) {
-                // Если высота равна 0, устанавливаем ширину равной высоте * соотношение
-                $width = 900; // Стандартная ширина
-                $height = 1200; // Стандартная высота
-            } else if ($width / $height > $ratio_orig) {
-                $width = $height * $ratio_orig;
-            } else {
-                // Проверка на деление на ноль
-                if ($ratio_orig == 0) {
-                    // Если соотношение равно 0, устанавливаем высоту равной ширине
-                    $height = $width;
-                } else {
-                    $height = $width / $ratio_orig;
+            // Проверяем существование файла
+            if (file_exists($path)) {
+                $image_type = exif_imagetype($path);
+                
+                // Логируем тип изображения для отладки
+                AddMessage2Log("Тип изображения для файла $path: " . $image_type);
+                
+                if ($image_type == 1)  $src = imageCreateFromGif($path);
+                else if ($image_type == 2)  $src = imageCreateFromJpeg($path);
+                else if ($image_type == 3)  $src = imageCreateFromPng($path);
+                else if ($image_type == 18) $src = imageCreateFromWebp($path);
+                else {
+                    AddMessage2Log("Неподдерживаемый тип изображения: " . $image_type . " для файла: " . $path);
                 }
+            } else {
+                AddMessage2Log("Файл не существует: " . $path);
             }
             
-            $im_x = ((900 - $width) / 2);
-            $im_y = ((1200 - $height) / 2);
-            
-            imagecopyresampled($im, $src, $im_x, $im_y, 0, 0, $width, $height, $width_orig, $height_orig);
-            
-            imagewebp($im, $_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
-            imagedestroy($im);
-            
-            $file = CFile::MakeFileArray($_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
-            
-            $el = new CIBlockElement;
-            $el->Update($key, array("DETAIL_PICTURE" => $file));
-            if (empty($val["PROPERTY_PHOTO_EXTERNAL_ID"])) {
-                CIBlockElement::SetPropertyValuesEx($key, $val["IBLOCK_ID"], array("PHOTO_EXTERNAL_ID" => $val["FILE"]["EXTERNAL_ID"]));
+            // Проверяем, что $src не null перед продолжением
+            if ($src !== null) {
+                list($width_orig, $height_orig) = getimagesize($path);
+                
+                // Проверка на деление на ноль
+                if ($height_orig == 0) {
+                    // Если высота равна 0, устанавливаем соотношение 1:1 (квадрат)
+                    $ratio_orig = 1;
+                } else {
+                    $ratio_orig = $width_orig / $height_orig;
+                }
+                
+                // Проверка на деление на ноль при сравнении соотношений
+                if ($height == 0) {
+                    // Если высота равна 0, устанавливаем ширину равной высоте * соотношение
+                    $width = 900; // Стандартная ширина
+                    $height = 1200; // Стандартная высота
+                } else if ($width / $height > $ratio_orig) {
+                    $width = $height * $ratio_orig;
+                } else {
+                    // Проверка на деление на ноль
+                    if ($ratio_orig == 0) {
+                        // Если соотношение равно 0, устанавливаем высоту равной ширине
+                        $height = $width;
+                    } else {
+                        $height = $width / $ratio_orig;
+                    }
+                }
+                
+                $im_x = ((900 - $width) / 2);
+                $im_y = ((1200 - $height) / 2);
+                
+                imagecopyresampled($im, $src, $im_x, $im_y, 0, 0, $width, $height, $width_orig, $height_orig);
+                
+                imagewebp($im, $_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
+                imagedestroy($im);
+                
+                $file = CFile::MakeFileArray($_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
+                
+                $el = new CIBlockElement;
+                $el->Update($key, array("DETAIL_PICTURE" => $file));
+                if (empty($val["PROPERTY_PHOTO_EXTERNAL_ID"])) {
+                    CIBlockElement::SetPropertyValuesEx($key, $val["IBLOCK_ID"], array("PHOTO_EXTERNAL_ID" => $val["FILE"]["EXTERNAL_ID"]));
+                }
+            } else {
+                // Логируем ошибку, если $src равен null
+                AddMessage2Log("Ошибка: Не удалось создать изображение из файла: " . $path);
+                // Освобождаем ресурсы
+                if ($im) {
+                    imagedestroy($im);
+                }
             }
             
         }

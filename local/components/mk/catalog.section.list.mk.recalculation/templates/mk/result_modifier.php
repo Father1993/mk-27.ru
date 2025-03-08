@@ -7,11 +7,11 @@ while ($sectListGet = $sectList->GetNext())
     $arSections[$sectListGet["ID"]]["UF_ELEMENT_CNT"] = $sectListGet["UF_ELEMENT_CNT"];
 }
 
-// Изменяем количество товаров в свойстве раздела.
+// Инициализируем счетчик изменённых разделов
 $s = 0;
-foreach ($arResult['SECTIONS'] as $key => $section) {
 
-    if ($arSections[$section["ID"]]["UF_ELEMENT_CNT"] != $section["ELEMENT_CNT"]) {
+if (!empty($arResult["SECTIONS"])) {
+    foreach ($arResult["SECTIONS"] as $section) {
         $s++;
         $bs = new CIBlockSection;
         $bs->Update($section["ID"], array("UF_ELEMENT_CNT" => $section["ELEMENT_CNT"]));
@@ -19,7 +19,13 @@ foreach ($arResult['SECTIONS'] as $key => $section) {
     
 } 
 
-define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/recalculation_menu_log.txt");
+// Проверяем существование директории для логов
+$log_dir = $_SERVER["DOCUMENT_ROOT"]."/local/logs/";
+if (!file_exists($log_dir)) {
+    mkdir($log_dir, 0755, true);
+}
+
+define("LOG_FILENAME", $log_dir."recalculation_menu_log.txt");
 AddMessage2Log("Количество изменённых разделов: $s.");
 
 ?>
