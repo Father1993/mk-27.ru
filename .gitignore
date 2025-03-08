@@ -15,6 +15,7 @@ recalculation_menu_log.txt
 # Игнорировать файлы ADEV (с учетом регистра)
 /ADEV/
 /adev/
+/ADEV/after_log.txt
 
 # Игнорировать содержимое /bitrix/, но с исключениями
 /bitrix/*
