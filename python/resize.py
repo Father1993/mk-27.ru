@@ -3,13 +3,13 @@ url = sys.argv[1]
 scale = sys.argv[2]
 
 if (scale == "2"):
-	model = "FSRCNN_x2.pb"
+    model = "FSRCNN_x2.pb"
 elif (scale == "3"):
-	model = "FSRCNN_x3.pb"
+    model = "FSRCNN_x3.pb"
 elif (scale == "4"):
-	model = "FSRCNN_x4.pb"
+    model = "FSRCNN_x4.pb"
 elif (scale == "8"):
-	model = "LapSRN_x8.pb"
+    model = "LapSRN_x8.pb"
 
 import os
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
@@ -28,7 +28,14 @@ path = "/home/bitrix/www/python/model/" + model
 sr.readModel(path)
 
 # Set the desired model and scale to get correct pre- and post-processing
-sr.setModel("lapsrn", 8)
+if scale == "8":
+    sr.setModel("lapsrn", 8)
+elif scale == "4":
+    sr.setModel("fsrcnn", 4)
+elif scale == "3":
+    sr.setModel("fsrcnn", 3)
+elif scale == "2":
+    sr.setModel("fsrcnn", 2)
 
 # Upscale the image
 result = sr.upsample(image)
