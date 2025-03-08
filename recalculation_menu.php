@@ -231,12 +231,29 @@ foreach ($arItems as $key => $val) {
             
             list($width_orig, $height_orig) = getimagesize($path);
             
-            $ratio_orig = $width_orig / $height_orig;
+            // Проверка на деление на ноль
+            if ($height_orig == 0) {
+                // Если высота равна 0, устанавливаем соотношение 1:1 (квадрат)
+                $ratio_orig = 1;
+            } else {
+                $ratio_orig = $width_orig / $height_orig;
+            }
             
-            if ($width / $height > $ratio_orig) {
+            // Проверка на деление на ноль при сравнении соотношений
+            if ($height == 0) {
+                // Если высота равна 0, устанавливаем ширину равной высоте * соотношение
+                $width = 900; // Стандартная ширина
+                $height = 1200; // Стандартная высота
+            } else if ($width / $height > $ratio_orig) {
                 $width = $height * $ratio_orig;
             } else {
-                $height = $width / $ratio_orig;
+                // Проверка на деление на ноль
+                if ($ratio_orig == 0) {
+                    // Если соотношение равно 0, устанавливаем высоту равной ширине
+                    $height = $width;
+                } else {
+                    $height = $width / $ratio_orig;
+                }
             }
             
             $im_x = ((900 - $width) / 2);
