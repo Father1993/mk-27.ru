@@ -7,7 +7,14 @@
 **/node_modules/
 **/vendor/
 /python/venv/*
+
+# Игнорировать лог-файлы
 recalculation_menu_log.txt
+*_log.txt
+
+# Игнорировать файлы ADEV (с учетом регистра)
+/ADEV/
+/adev/
 
 # Игнорировать содержимое /bitrix/, но с исключениями
 /bitrix/*
