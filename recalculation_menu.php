@@ -227,12 +227,17 @@ foreach ($arItems as $key => $val) {
             // Инициализируем $src как null
             $src = null;
             
+            // Флаг для отладки (установите в true только при необходимости)
+            $debug = false;
+            
             // Проверяем существование файла
             if (file_exists($path)) {
                 $image_type = exif_imagetype($path);
                 
-                // Логируем тип изображения для отладки
-                AddMessage2Log("Тип изображения для файла $path: " . $image_type);
+                // Логируем тип изображения только при отладке
+                if ($debug) {
+                    AddMessage2Log("Тип изображения для файла $path: " . $image_type);
+                }
                 
                 if ($image_type == 1)  $src = imageCreateFromGif($path);
                 else if ($image_type == 2)  $src = imageCreateFromJpeg($path);
@@ -282,12 +287,25 @@ foreach ($arItems as $key => $val) {
                 imagewebp($im, $_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
                 imagedestroy($im);
                 
-                $file = CFile::MakeFileArray($_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp");
-                
-                $el = new CIBlockElement;
-                $el->Update($key, array("DETAIL_PICTURE" => $file));
-                if (empty($val["PROPERTY_PHOTO_EXTERNAL_ID"])) {
-                    CIBlockElement::SetPropertyValuesEx($key, $val["IBLOCK_ID"], array("PHOTO_EXTERNAL_ID" => $val["FILE"]["EXTERNAL_ID"]));
+                // Проверяем, что файл был успешно создан
+                $temp_file = $_SERVER["DOCUMENT_ROOT"] . "/upload/temp.webp";
+                if (file_exists($temp_file)) {
+                    $file = CFile::MakeFileArray($temp_file);
+                    
+                    $el = new CIBlockElement;
+                    $result = $el->Update($key, array("DETAIL_PICTURE" => $file));
+                    
+                    if ($result) {
+                        // Обновление прошло успешно
+                        if (empty($val["PROPERTY_PHOTO_EXTERNAL_ID"])) {
+                            CIBlockElement::SetPropertyValuesEx($key, $val["IBLOCK_ID"], array("PHOTO_EXTERNAL_ID" => $val["FILE"]["EXTERNAL_ID"]));
+                        }
+                    } else {
+                        // Логируем ошибку обновления
+                        AddMessage2Log("Ошибка обновления элемента ID: " . $key . ". Ошибка: " . $el->LAST_ERROR);
+                    }
+                } else {
+                    AddMessage2Log("Ошибка: Не удалось создать временный файл: " . $temp_file);
                 }
             } else {
                 // Логируем ошибку, если $src равен null
